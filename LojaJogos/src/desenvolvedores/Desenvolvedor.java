@@ -1,4 +1,4 @@
-package ClasseBasicas;
+package desenvolvedores;
 
 public class Desenvolvedor {
 

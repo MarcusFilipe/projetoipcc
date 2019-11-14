@@ -1,4 +1,4 @@
-package ClasseBasicas;
+package clientes;
 
 public class Cliente {
 

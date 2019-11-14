@@ -1,4 +1,4 @@
-package ClasseBasicas;
+package produtos;
 
 public class Produto {
 
