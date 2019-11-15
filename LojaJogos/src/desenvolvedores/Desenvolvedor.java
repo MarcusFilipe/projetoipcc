@@ -1,16 +1,16 @@
 package desenvolvedores;
 
-import usuarios.Usuario;
+import usuarios.PessoaJuridica;
 
-public class Desenvolvedor extends Usuario
+public class Desenvolvedor extends PessoaJuridica
 {
 	
 	private double porcentagemVenda;
 	
-	public Desenvolvedor(String nome,String numero,double porcentagemVenda)
+	public Desenvolvedor(String nome,String numero)
 	{
 		super(nome,numero);
-		this.porcentagemVenda=this.porcentagemVenda;
+		this.porcentagemVenda=0;
 	}
 	public double getPorcentagemVenda() {
 		return porcentagemVenda;

@@ -3,10 +3,10 @@ package usuarios;
 public class PessoaJuridica extends Usuario {
 	private String cnpj;
 
-	public PessoaJuridica(String nome,String email,String cnpj)
+	public PessoaJuridica(String nome,String email)
 	{
 		super(nome,email);
-		this.cnpj=cnpj;
+		this.cnpj=null;
 	}
 	public String getCnpj() {
 		return cnpj;
