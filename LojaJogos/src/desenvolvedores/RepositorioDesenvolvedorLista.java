@@ -1,6 +1,6 @@
 package desenvolvedores;
 
-public class RepositorioDesenvolvedorLista {
+public class RepositorioDesenvolvedorLista implements RespositorioDesenvolvedores{
 	private Desenvolvedor desenvolvedor;
 	private RepositorioDesenvolvedorLista proximo;
 	public RepositorioDesenvolvedorLista()
@@ -8,7 +8,7 @@ public class RepositorioDesenvolvedorLista {
 		this.desenvolvedor=null;
 		this.proximo=null;
 	}
-	void inserir(Desenvolvedor desenvolvedor)
+	public void inserir(Desenvolvedor desenvolvedor)
 	{
 		if(this.desenvolvedor==null)
 		{
@@ -18,7 +18,7 @@ public class RepositorioDesenvolvedorLista {
 		else
 			this.proximo.inserir(desenvolvedor);
 	}
-	void remover(String nome)
+	public void remover(String nome)
 	{
 		if(this.desenvolvedor!=null)
 		{
@@ -32,7 +32,7 @@ public class RepositorioDesenvolvedorLista {
 		}
 		//aqui entra um exception
 	}
-	boolean existe(String nome)
+	public boolean existe(String nome)
 	{
 		boolean resposta=false;
 		if(this.desenvolvedor!=null)
@@ -44,7 +44,7 @@ public class RepositorioDesenvolvedorLista {
 		}
 		return resposta;
 	}
-	Desenvolvedor procurar(String nome)
+	public Desenvolvedor procurar(String nome)
 	{
 		Desenvolvedor resposta=null;
 		if(this.desenvolvedor!=null)
@@ -56,5 +56,15 @@ public class RepositorioDesenvolvedorLista {
 		}
 		//aqui entra um exception
 		return resposta;
+	}
+	public void atualiza(Desenvolvedor desenvolvedor)
+	{
+		if(this.desenvolvedor!=null)
+		{
+			if(this.desenvolvedor.getCnpj().equals(desenvolvedor.getCnpj()))
+				this.desenvolvedor=desenvolvedor;
+			else
+				this.proximo.atualiza(desenvolvedor);
+		}
 	}
 }
