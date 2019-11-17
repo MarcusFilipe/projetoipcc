@@ -16,7 +16,7 @@ public class RepositorioDesenvolvedorLista {
 			this.proximo= new RepositorioDesenvolvedorLista();
 		}
 		else
-			proximo.inserir(desenvolvedor);
+			this.proximo.inserir(desenvolvedor);
 	}
 	void remover(String nome)
 	{
