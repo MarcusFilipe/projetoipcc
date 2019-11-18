@@ -1,6 +1,6 @@
 package desenvolvedores;
 
-public class RepositorioDesenvolvedorLista implements RespositorioDesenvolvedores{
+public class RepositorioDesenvolvedorLista implements RepositorioDesenvolvedores{
 	private Desenvolvedor desenvolvedor;
 	private RepositorioDesenvolvedorLista proximo;
 	public RepositorioDesenvolvedorLista()
