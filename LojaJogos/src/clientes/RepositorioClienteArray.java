@@ -29,10 +29,10 @@ public class RepositorioClienteArray implements RepositorioClientes {
 		return i;
 	}
 
-	public void remover(String cpf) throws ClienteNaoEncontradoException{
+	public void remover(String cpf) throws ClienteNaoCadastradoException{
 		int i = this.getIndice(cpf);
 		if(i == this.indice) {
-			throw new ClienteNaoEncontradoException();
+			throw new ClienteNaoCadastradoException();
 		}else {
 			this.indice = this.indice - 1;
 			this.clientes[i] = this.clientes[this.indice];
@@ -45,20 +45,20 @@ public class RepositorioClienteArray implements RepositorioClientes {
 		return (i != this.indice);
 	}
 	
-	public void atualizar(Cliente cliente) throws ClienteNaoEncontradoException {
+	public void atualizar(Cliente cliente) throws ClienteNaoCadastradoException {
 		int i = this.getIndice(cliente.getCpf());
 		if (i == this.indice) {
-			throw new ClienteNaoEncontradoException();
+			throw new ClienteNaoCadastradoException();
 		} else {
 			this.clientes[i] = cliente;
 		}
 	}
 	
-	public Cliente procurar(String cpf) throws ClienteNaoEncontradoException {
+	public Cliente procurar(String cpf) throws ClienteNaoCadastradoException {
 		Cliente resposta = null;
 		int i = this.getIndice(cpf);
 		if (i == this.indice) {
-			throw new ClienteNaoEncontradoException();
+			throw new ClienteNaoCadastradoException();
 		} else {
 			resposta = this.clientes[i];
 		}
@@ -67,3 +67,4 @@ public class RepositorioClienteArray implements RepositorioClientes {
 	
 	
 }
+

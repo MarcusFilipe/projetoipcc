@@ -2,12 +2,10 @@ package usuarios;
 
 public class PessoaFisica extends Usuario {
 	private String cpf;
-	private Integer idade;
 	
-	public PessoaFisica(String nome, String email){
+	public PessoaFisica(String nome, String email, String cpf){
 		super(nome,email);
-		this.cpf = null;
-		this.idade = null;
+		this.cpf = cpf;
 	}
 	
 	public String getCpf() {
@@ -17,14 +15,5 @@ public class PessoaFisica extends Usuario {
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
-
-	public Integer getIdade() {
-		return idade;
-	}
-
-	public void setIdade(Integer idade) {
-		this.idade = idade;
-	}
-	
 	
 }

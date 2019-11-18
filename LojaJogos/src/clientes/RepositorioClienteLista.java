@@ -3,7 +3,7 @@ package clientes;
 public class RepositorioClienteLista implements RepositorioClientes{
 	private Cliente cliente;
 	private RepositorioClienteLista proximo;
-	
+	//falta inserir os throws
 	public RepositorioClienteLista() {
 		this.cliente = null;
 		this.proximo = null;
@@ -11,7 +11,7 @@ public class RepositorioClienteLista implements RepositorioClientes{
 	
 	public void inserir(Cliente cliente) {
 		if(this.cliente == null) {
-			this.inserir(cliente);
+			this.cliente = cliente;
 			this.proximo = new RepositorioClienteLista();
 		}else {
 			this.proximo.inserir(cliente);
@@ -22,7 +22,7 @@ public class RepositorioClienteLista implements RepositorioClientes{
 		if(this.cliente != null && this.cliente.getCpf().equals(cpf)) {
 			this.cliente = this.proximo.cliente;
 			this.proximo = this.proximo.proximo;
-		}else {
+		}else if(this.cliente != null){
 			this.proximo.remover(cpf);
 		}
 	}
@@ -40,13 +40,18 @@ public class RepositorioClienteLista implements RepositorioClientes{
 		if(this.cliente != null && this.cliente.getCpf().equals(cpf)) {
 			return this.cliente;
 		}else if(this.cliente != null) {
-			return this.proximo.cliente;
+			return this.proximo.procurar(cpf);
 		}
 		return null;
 	}
-	//terminar
+	
 	public void atualizar(Cliente cliente) {
 		
+		if(this.cliente != null && this.cliente.getCpf().equals(cliente.getCpf())) {
+			this.cliente = cliente;
+		}else if(this.cliente != null) {
+			this.proximo.atualizar(cliente);
+		}
 	}
 	
 	
