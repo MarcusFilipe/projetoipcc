@@ -48,17 +48,21 @@ public class Programa {
 		System.out.println(lista.existe("189.340.503-12"));
 		
 		Cliente cl2 = new Cliente("Alice","abm","192.949.340-53","skrix");
-		lista.atualizar(cl2);
-		lista.remover("189.340.503-12");
-		System.out.println(lista.existe("189.340.503-12"));
-		lista.remover("123");
-		Cliente c = lista.procurar("192.949.340-53");
-		System.out.println("email-"+ c.getEmail()+"\nnome-"+c.getNome()+"\nnick -"+c.getNickname());
+		try {
+			lista.atualizar(cl2);
+			lista.remover("189.340.503-12");
+			lista.remover("123");
+		}catch(ClienteNaoCadastradoException e) {
+			System.out.println(e.getMessage());
+		}
+			System.out.println(lista.existe("189.340.503-12"));
+		try {
+			Cliente c = lista.procurar("192.949.340-53");
+			System.out.println("email-"+ c.getEmail()+"\nnome-"+c.getNome()+"\nnick -"+c.getNickname());
+		}catch(ClienteNaoCadastradoException e) {
+			System.out.println(e.getMessage());
+		}
 		//
-		
-		
-		
-		
 		
 	}
 }
