@@ -7,10 +7,10 @@ public class Desenvolvedor extends PessoaJuridica
 	
 	private double porcentagemVenda;
 	
-	public Desenvolvedor(String nome,String numero)
+	public Desenvolvedor(String nome,String email, String cnpj, double porcentagemVenda)
 	{
-		super(nome,numero);
-		this.porcentagemVenda=0;
+		super(nome,email,cnpj);
+		this.porcentagemVenda=porcentagemVenda;
 	}
 	public double getPorcentagemVenda() {
 		return porcentagemVenda;
