@@ -1,6 +1,6 @@
 package desenvolvedores;
 
-public interface RespositorioDesenvolvedores 
+public interface RepositorioDesenvolvedores 
 {
 	public void inserir(Desenvolvedor desenvolvedor);
 	public void remover(String nome);
