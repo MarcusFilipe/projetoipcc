@@ -18,50 +18,45 @@ public class RepositorioDesenvolvedorLista implements RepositorioDesenvolvedores
 		else
 			this.proximo.inserir(desenvolvedor);
 	}
-	public void remover(String nome) throws DesenvolvedorNaoCadastradoException
+	public void remover(String cnpj)
 	{
 		if(this.desenvolvedor!=null)
 		{
-			if(this.desenvolvedor.getNome().equals(nome))
+			if(this.desenvolvedor.getCnpj().equals(cnpj))
 			{
 				this.desenvolvedor=this.proximo.desenvolvedor;
 				this.proximo=this.proximo.proximo;
 			}
 			else
-				this.proximo.remover(nome);
+				this.proximo.remover(cnpj);
 		}
-		else
-			throw new DesenvolvedorNaoCadastradoException();
 		
 	}
-	public boolean existe(String nome)
+	public boolean existe(String cnpj)
 	{
 		boolean resposta=false;
 		if(this.desenvolvedor!=null)
 		{
-			if(this.desenvolvedor.getNome().equals(nome))
+			if(this.desenvolvedor.getCnpj().equals(cnpj))
 				resposta=true;
 			else
-				resposta=this.proximo.existe(nome);
+				resposta=this.proximo.existe(cnpj);
 		}
 		return resposta;
 	}
-	public Desenvolvedor procurar(String nome)throws DesenvolvedorNaoCadastradoException
+	public Desenvolvedor procurar(String cnpj)
 	{
 		Desenvolvedor resposta=null;
 		if(this.desenvolvedor!=null)
 		{
-			if(this.desenvolvedor.getNome().equals(nome))
+			if(this.desenvolvedor.getCnpj().equals(cnpj))
 				resposta=this.desenvolvedor;
 			else
-				resposta=this.proximo.procurar(nome);
+				resposta=this.proximo.procurar(cnpj);
 		}
-		else
-			throw new DesenvolvedorNaoCadastradoException();
-		
 		return resposta;
 	}
-	public void atualiza(Desenvolvedor desenvolvedor)throws DesenvolvedorNaoCadastradoException
+	public void atualiza(Desenvolvedor desenvolvedor)
 	{
 		if(this.desenvolvedor!=null)
 		{
@@ -70,7 +65,5 @@ public class RepositorioDesenvolvedorLista implements RepositorioDesenvolvedores
 			else
 				this.proximo.atualiza(desenvolvedor);
 		}
-		else
-			throw new DesenvolvedorNaoCadastradoException();
 	}
 }

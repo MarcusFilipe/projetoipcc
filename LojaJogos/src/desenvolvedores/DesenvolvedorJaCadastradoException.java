@@ -2,8 +2,8 @@ package desenvolvedores;
 
 public class DesenvolvedorJaCadastradoException extends Exception 
 {
-	public DesenvolvedorJaCadastradoException(String nome)
+	public DesenvolvedorJaCadastradoException(Desenvolvedor desenvolvedor)
 	{
-		super("O desenvolvedor "+nome+" ja esta cadastrado");
+		super("O desenvolvedor "+desenvolvedor.getNome()+" com o cnpj: "+desenvolvedor.getCnpj()+" ja esta cadastrado");
 	}
 }
