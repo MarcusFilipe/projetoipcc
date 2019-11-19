@@ -4,26 +4,26 @@ public class CadastroFuncionarios {
 	private RepositorioFuncionario funcionario;
 
 	public CadastroFuncionarios(RepositorioFuncionario repositorio) {
-		funcionario = repositorio;
+		this.funcionario = repositorio;
 	}
 
 	public void cadastrar(Funcionario dados) throws FuncionarioJaCadastradoException {
-		if (funcionario.existe(dados.getCarteiraTrabalho())) {
+		if (this.funcionario.existe(dados.getCarteiraTrabalho())) {
 			throw new FuncionarioJaCadastradoException(dados);
 		} else
-			funcionario.inserir(dados);
+			this.funcionario.inserir(dados);
 	}
 
 	public void remover(Funcionario dados) throws FuncionarioNaoCadastradoException {
-		if (funcionario.existe(dados.getCarteiraTrabalho())) {
-			funcionario.remover(dados.getCarteiraTrabalho());
+		if (this.funcionario.existe(dados.getCarteiraTrabalho())) {
+			this.funcionario.remover(dados.getCarteiraTrabalho());
 		} else
 			throw new FuncionarioNaoCadastradoException();
 	}
 
 	public void atualizar(Funcionario dados) throws FuncionarioNaoCadastradoException {
-		if (funcionario.existe(dados.getCarteiraTrabalho())) {
-			funcionario.atualizar(dados);
+		if (this.funcionario.existe(dados.getCarteiraTrabalho())) {
+			this.funcionario.atualizar(dados);
 		} else
 			throw new FuncionarioNaoCadastradoException();
 	}
