@@ -13,6 +13,10 @@ public class CadastroFuncionarios {
 		} else
 			funcionario.inserir(dados);
 	}
+	
+	public void procurar(String carteiraTrabalho) {
+		
+	}
 
 	public void remover(Funcionario dados) throws FuncionarioNaoCadastradoException {
 		if (funcionario.existe(dados.getCarteiraTrabalho())) {
@@ -27,5 +31,7 @@ public class CadastroFuncionarios {
 		} else
 			throw new FuncionarioNaoCadastradoException();
 	}
+	
+	
 
 }
