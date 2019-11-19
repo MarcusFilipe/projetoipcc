@@ -4,11 +4,11 @@ public interface RepositorioFuncionario {
 
 	void inserir(Funcionario dados);
 
-	Funcionario procurar(String carteiraTrabalho) throws FuncionarioNaoCadastradoException;
+	Funcionario procurar(String carteiraTrabalho);
 
-	void atualizar(Funcionario dados) throws FuncionarioNaoCadastradoException;
+	void atualizar(Funcionario dados);
 
-	void remover(String carteiraTrabalho) throws FuncionarioNaoCadastradoException;
+	void remover(String carteiraTrabalho);
 
 	boolean existe(String carteiraTrabalho);
 

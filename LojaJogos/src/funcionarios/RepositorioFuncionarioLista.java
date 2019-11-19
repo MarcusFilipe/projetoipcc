@@ -20,7 +20,7 @@ public class RepositorioFuncionarioLista implements RepositorioFuncionario {
 
 	}
 
-	public Funcionario procurar(String carteiraTrabalho) throws FuncionarioNaoCadastradoException {
+	public Funcionario procurar(String carteiraTrabalho) {
 		if (this.funcionario != null && this.funcionario.getCarteiraTrabalho().equals(carteiraTrabalho)) {
 			return this.funcionario;
 		} else if (this.funcionario != null) {
@@ -30,7 +30,7 @@ public class RepositorioFuncionarioLista implements RepositorioFuncionario {
 
 	}
 
-	public void atualizar(Funcionario dados) throws FuncionarioNaoCadastradoException {
+	public void atualizar(Funcionario dados) {
 		if (this.funcionario != null && this.funcionario.getCarteiraTrabalho().equals(dados.getCarteiraTrabalho())) {
 			this.funcionario = dados;
 		} else if (this.funcionario != null) {
@@ -38,7 +38,7 @@ public class RepositorioFuncionarioLista implements RepositorioFuncionario {
 		}
 	}
 
-	public void remover(String carteiraTrabalho) throws FuncionarioNaoCadastradoException {
+	public void remover(String carteiraTrabalho) {
 		if (this.funcionario != null && this.funcionario.getCarteiraTrabalho().equals(carteiraTrabalho)) {
 			this.funcionario = this.proximo.funcionario;
 			this.proximo = this.proximo.proximo;

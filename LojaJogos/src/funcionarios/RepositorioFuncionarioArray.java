@@ -15,31 +15,25 @@ public class RepositorioFuncionarioArray implements RepositorioFuncionario {
 		index++;
 	}
 
-	public Funcionario procurar(String carteiraTrabalho) throws FuncionarioNaoCadastradoException {
+	public Funcionario procurar(String carteiraTrabalho) {
 		Funcionario resposta = null;
 		int index = this.getIndice(carteiraTrabalho);
-		if (index == this.index) {
-			throw new FuncionarioNaoCadastradoException();
-		} else {
+		if (index != this.index) {
 			resposta = this.funcionario[index];
 		}
 		return resposta;
 	}
 
-	public void atualizar(Funcionario dados) throws FuncionarioNaoCadastradoException {
+	public void atualizar(Funcionario dados) {
 		int index = this.getIndice(dados.getCarteiraTrabalho());
-		if (index == this.index) {
-			throw new FuncionarioNaoCadastradoException();
-		} else {
+		if (index != this.index) {
 			this.funcionario[index] = dados;
 		}
 	}
 
-	public void remover(String carteiraTrabalho) throws FuncionarioNaoCadastradoException {
+	public void remover(String carteiraTrabalho) {
 		int index = this.getIndice(carteiraTrabalho);
-		if (index == this.index) {
-			throw new FuncionarioNaoCadastradoException();
-		} else {
+		if (index != this.index) {
 			this.index = this.index - 1;
 			this.funcionario[index] = this.funcionario[this.index];
 			this.funcionario[this.index] = null;
