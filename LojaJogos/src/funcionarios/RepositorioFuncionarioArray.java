@@ -5,7 +5,7 @@ public class RepositorioFuncionarioArray implements RepositorioFuncionario {
 	private Funcionario[] funcionario;
 	private int index;
 
-	RepositorioFuncionarioArray(int size) {
+	public RepositorioFuncionarioArray(int size) {
 		funcionario = new Funcionario[size];
 		index = 0;
 	}

@@ -4,6 +4,7 @@ import clientes.*;
 import produtos.*;
 import usuarios.*;
 import desenvolvedores.*;
+import funcionarios.*;
 
 
 public class Programa {
@@ -11,15 +12,17 @@ public class Programa {
 		//testes clientes
 		Cliente cl = new Cliente("Marcus","mfbm","192.949.340-53","skrix");
 		Cliente cl1 = new Cliente("Wilson", "whfdsui", "189.340.503-12", "uiusu");
+		Cliente cl2 = new Cliente("Alice","abm","192.949.340-53","skrix");
 		
+		RepositorioClientes arrayClientes = new RepositorioClienteArray(100);
+		RepositorioClientes listaClientes = new RepositorioClienteLista();
+		RepositorioDesenvolvedores listaDesenvolvedores = new RepositorioDesenvolvedorLista();
+		RepositorioFuncionario arrayFuncionarios = new RepositorioFuncionarioArray(100);
 		
-		RepositorioClienteArray arrayClientes = new RepositorioClienteArray(100);
-		System.out.println("Qual tipo de repositorio você deseja?");
-		
-		Fachada f = new Fachada(arrayClientes,arrayDesenvolvedores,arrayVendas);
-		RepositorioClienteLista listaClientes = new RepositorioClienteLista();
+
+		Fachada f = new Fachada(arrayClientes, listaDesenvolvedores, arrayFuncionarios);
 		//array
-		arrayClientes.inserir(cl);
+	
 		arrayClientes.inserir(cl1);
 		System.out.println(arrayClientes.existe("192.949.340-53"));
 		System.out.println(arrayClientes.existe("189.340.503-12"));
@@ -51,7 +54,6 @@ public class Programa {
 		System.out.println(listaClientes.existe("192.949.340-53"));
 		System.out.println(listaClientes.existe("189.340.503-12"));
 		
-		Cliente cl2 = new Cliente("Alice","abm","192.949.340-53","skrix");
 		try {
 			listaClientes.atualizar(cl2);
 			listaClientes.remover("189.340.503-12");
@@ -66,7 +68,11 @@ public class Programa {
 		}catch(ClienteNaoCadastradoException e) {
 			System.out.println(e.getMessage());
 		}
-		//
-		
+		//teste fachada
+		try {
+		f.cadastrarCliente(cl1);
+		}catch(ClienteJaCadastradoException e1) {
+			System.out.println(e1.getMessage());
+		}
 	}
 }

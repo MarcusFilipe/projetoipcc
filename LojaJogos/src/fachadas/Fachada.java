@@ -12,7 +12,7 @@ public class Fachada {
 	private CadastroFuncionarios funcionarios;
 	
 	public Fachada(RepositorioClientes repClientes, RepositorioDesenvolvedores repDesenvolvedores,
-			RepositorioFuncionario repFuncionarios) {
+			RepositorioFuncionario repFuncionarios){
 		this.clientes = new CadastroClientes(repClientes);
 		this.desenvolvedores = new CadastroDesenvolvedores(repDesenvolvedores);
 		this.funcionarios = new CadastroFuncionarios(repFuncionarios);
