@@ -18,7 +18,7 @@ public class RepositorioDesenvolvedorLista implements RepositorioDesenvolvedores
 		else
 			this.proximo.inserir(desenvolvedor);
 	}
-	public void remover(String nome)
+	public void remover(String nome) throws DesenvolvedorNaoCadastradoException
 	{
 		if(this.desenvolvedor!=null)
 		{
@@ -30,7 +30,9 @@ public class RepositorioDesenvolvedorLista implements RepositorioDesenvolvedores
 			else
 				this.proximo.remover(nome);
 		}
-		//aqui entra um exception
+		else
+			throw new DesenvolvedorNaoCadastradoException();
+		
 	}
 	public boolean existe(String nome)
 	{
@@ -44,7 +46,7 @@ public class RepositorioDesenvolvedorLista implements RepositorioDesenvolvedores
 		}
 		return resposta;
 	}
-	public Desenvolvedor procurar(String nome)
+	public Desenvolvedor procurar(String nome)throws DesenvolvedorNaoCadastradoException
 	{
 		Desenvolvedor resposta=null;
 		if(this.desenvolvedor!=null)
@@ -54,10 +56,12 @@ public class RepositorioDesenvolvedorLista implements RepositorioDesenvolvedores
 			else
 				resposta=this.proximo.procurar(nome);
 		}
-		//aqui entra um exception
+		else
+			throw new DesenvolvedorNaoCadastradoException();
+		
 		return resposta;
 	}
-	public void atualiza(Desenvolvedor desenvolvedor)
+	public void atualiza(Desenvolvedor desenvolvedor)throws DesenvolvedorNaoCadastradoException
 	{
 		if(this.desenvolvedor!=null)
 		{
@@ -66,5 +70,7 @@ public class RepositorioDesenvolvedorLista implements RepositorioDesenvolvedores
 			else
 				this.proximo.atualiza(desenvolvedor);
 		}
+		else
+			throw new DesenvolvedorNaoCadastradoException();
 	}
 }
