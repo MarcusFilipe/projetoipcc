@@ -7,11 +7,11 @@ public class CadastroDesenvolvedores
 	{
 		this.desenvolvedores=desenvolvedores;
 	}
-	public void cadastrar(Desenvolvedor desenvolvedor)
+	public void cadastrar(Desenvolvedor desenvolvedor)throws DesenvolvedorJaCadastradoException
 	{
 		if(!desenvolvedores.existe(desenvolvedor.getNome()))
 			desenvolvedores.inserir(desenvolvedor);
-		//else exception desenvolvedorjacadastrado
+		else
+			throw new DesenvolvedorJaCadastradoException(desenvolvedor.getNome());
 	}
-
 }
