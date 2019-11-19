@@ -25,8 +25,9 @@ public class RepositorioFuncionarioLista implements RepositorioFuncionario {
 			return this.funcionario;
 		} else if (this.funcionario != null) {
 			return this.proximo.procurar(carteiraTrabalho);
-		}
-		return null;
+		} else
+			throw new FuncionarioNaoCadastradoException();
+
 	}
 
 	public void atualizar(Funcionario dados) throws FuncionarioNaoCadastradoException {
@@ -34,7 +35,8 @@ public class RepositorioFuncionarioLista implements RepositorioFuncionario {
 			this.funcionario = dados;
 		} else if (this.funcionario != null) {
 			this.proximo.atualizar(dados);
-		}
+		} else
+			throw new FuncionarioNaoCadastradoException();
 	}
 
 	public void remover(String carteiraTrabalho) throws FuncionarioNaoCadastradoException {
@@ -43,7 +45,8 @@ public class RepositorioFuncionarioLista implements RepositorioFuncionario {
 			this.proximo = this.proximo.proximo;
 		} else if (this.funcionario != null) {
 			this.proximo.remover(carteiraTrabalho);
-		}
+		} else
+			throw new FuncionarioNaoCadastradoException();
 	}
 
 	public boolean existe(String carteiraTrabalho) {
