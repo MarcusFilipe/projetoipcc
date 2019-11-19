@@ -42,7 +42,25 @@ public class Fachada {
 	}
 	
 	//desenvolvedor
+	public void cadastrarDesenvolvedor(Desenvolvedor desenvolvedor) throws DesenvolvedorJaCadastradoException{
+		desenvolvedores.cadastrar(desenvolvedor);
+	}
 	
+	public void removerDesenvolvedor(String cnpj) throws DesenvolvedorNaoCadastradoException{
+		desenvolvedores.remover(cnpj);
+	}
+	
+	public Desenvolvedor procurar(String cpf) throws DesenvolvedorNaoCadastradoException{
+		return desenvolvedores.procurar(cpf);
+	}
+	
+	public void atualizarDesenvolvedor(Desenvolvedor desenvolvedor) throws DesenvolvedorNaoCadastradoException{
+		desenvolvedores.atualiza(desenvolvedor);
+	}
+	
+	public boolean existeDesenvolvedor(String cpf){
+		return desenvolvedores.existe(cpf);
+	}
 	//funcionario
 	
 	//produto
