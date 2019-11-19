@@ -3,7 +3,6 @@ package clientes;
 public class RepositorioClienteLista implements RepositorioClientes{
 	private Cliente cliente;
 	private RepositorioClienteLista proximo;
-	//falta inserir os throws
 	public RepositorioClienteLista() {
 		this.cliente = null;
 		this.proximo = null;
@@ -18,14 +17,14 @@ public class RepositorioClienteLista implements RepositorioClientes{
 		}
 	}
 	
-	public void remover(String cpf) throws ClienteNaoCadastradoException{
+	public void remover(String cpf){
 		if(this.cliente != null && this.cliente.getCpf().equals(cpf)) {
 			this.cliente = this.proximo.cliente;
 			this.proximo = this.proximo.proximo;
 		}else if(this.cliente != null){
 			this.proximo.remover(cpf);
-		}else
-			throw new ClienteNaoCadastradoException();
+		}
+			
 	}
 	
 	public boolean existe(String cpf) {
@@ -37,23 +36,23 @@ public class RepositorioClienteLista implements RepositorioClientes{
 		return false;
 	}
 	
-	public Cliente procurar(String cpf) throws ClienteNaoCadastradoException{
+	public Cliente procurar(String cpf){
 		if(this.cliente != null && this.cliente.getCpf().equals(cpf)) {
 			return this.cliente;
 		}else if(this.cliente != null) {
 			return this.proximo.procurar(cpf);
-		}else
-			throw new ClienteNaoCadastradoException();
+		}
+		return null;
+			
 	}
 	
-	public void atualizar(Cliente cliente) throws ClienteNaoCadastradoException{
+	public void atualizar(Cliente cliente) {
 		
 		if(this.cliente != null && this.cliente.getCpf().equals(cliente.getCpf())) {
 			this.cliente = cliente;
 		}else if(this.cliente != null) {
 			this.proximo.atualizar(cliente);
-		}else
-			throw new ClienteNaoCadastradoException();
+		}
 	}
 	
 	

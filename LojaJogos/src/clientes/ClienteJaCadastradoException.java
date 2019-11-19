@@ -3,9 +3,9 @@ package clientes;
 public class ClienteJaCadastradoException extends Exception {
 	
 	
-	public ClienteJaCadastradoException(Cliente cliente) {
+	public ClienteJaCadastradoException() {
 		
-		super("Cliente"+cliente.getNickname()+"ja cadastrado");
+		super("Cliente ja cadastrado");
 	}
 	
 }
