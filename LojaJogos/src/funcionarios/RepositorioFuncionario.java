@@ -1,5 +1,6 @@
 package funcionarios;
 
+
 public interface RepositorioFuncionario {
 
 	void inserir(Funcionario dados);
