@@ -16,6 +16,7 @@ public class Fachada {
 		this.clientes = new CadastroClientes(repClientes);
 		this.desenvolvedores = new CadastroDesenvolvedores(repDesenvolvedores);
 		this.funcionarios = new CadastroFuncionarios(repFuncionarios);
+		//adicionar repositorios de venda e produtos(pietro e fred)
 		
 	}
 	
@@ -39,6 +40,14 @@ public class Fachada {
 	public boolean existeCliente(String cpf) throws ClienteNaoCadastradoException{
 		return clientes.existe(cpf);
 	}
+	
+	//desenvolvedor
+	
+	//funcionario
+	
+	//produto
+	
+	//venda
 	
 	
 	
