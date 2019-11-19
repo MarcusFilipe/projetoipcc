@@ -1,22 +1,22 @@
 package ui;
+
 import fachadas.*;
-
 import java.util.Scanner;
-
 import clientes.*;
 import produtos.*;
 import usuarios.*;
 import desenvolvedores.*;
 import funcionarios.*;
 
-
 public class Programa {
 	public static void main(String[] args) {
 		Scanner in = new Scanner(System.in);
-		//testes clientes
-		Cliente cl = new Cliente("Marcus","mfbm","192.949.340-53","skrix");
-		Cliente cl1 = new Cliente("Wilson", "whfdsui", "189.340.503-12", "uiusu");
-		Cliente cl2 = new Cliente("Alice","abm","192.949.340-53","skrix");
+	
+		Cliente cl = new Cliente("Marcus","mfbm","046.468.694-62","skrix");
+		Cliente cl1 = new Cliente("Wilson", "jwcfj", "189.340.503-12","uiusu");
+		Cliente cl2 = new Cliente("Alice","abm","046.468.694-62","skrix");
+		Cliente cl3 = new Cliente("Pedro","pvlb","105.930.450-89","ÈOuzi");
+		Cliente cl4 = new Cliente("Frederico","fbsm","193.149.560-69","Fred");
 		
 		RepositorioClientes arrayClientes = new RepositorioClienteArray(100);
 		RepositorioClientes listaClientes = new RepositorioClienteLista();
@@ -25,13 +25,22 @@ public class Programa {
 		RepositorioFuncionario arrayFuncionarios = new RepositorioFuncionarioArray(100);
 		RepositorioFuncionario listaFuncionarios = new RepositorioFuncionarioLista();
 		
-
+		
 		Fachada f = new Fachada(arrayClientes, arrayDesenvolvedores, arrayFuncionarios);
 		Fachada f1 = new Fachada(listaClientes, listaDesenvolvedores, listaFuncionarios);
 		//array
 		
-		while(in.hasNext())
-	
+		
+		try {
+			f.cadastrarCliente(cl);
+			f.cadastrarCliente(cl1);
+			f.existeCliente("046.468.694-62");
+		}catch(ClienteNaoCadastradoException e) {
+			System.out.println(e.getMessage());
+		}catch(ClienteJaCadastradoException e1) {
+			System.out.println(e1.getMessage());
+		}
+		
 		arrayClientes.inserir(cl1);
 		System.out.println(arrayClientes.existe("192.949.340-53"));
 		System.out.println(arrayClientes.existe("189.340.503-12"));
@@ -73,6 +82,7 @@ public class Programa {
 			System.out.println(listaClientes.existe("189.340.503-12"));
 		try {
 			Cliente c = listaClientes.procurar("192.949.340-53");
+			if(c != null)
 			System.out.println("email-"+ c.getEmail()+"\nnome-"+c.getNome()+"\nnick -"+c.getNickname());
 		}catch(ClienteNaoCadastradoException e) {
 			System.out.println(e.getMessage());
