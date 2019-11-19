@@ -1,42 +1,14 @@
 package funcionarios;
 
-public class Funcionario {
-	private String nome;
-	private String cpf;
-	private String cep;
+import usuarios.PessoaFisica;
+
+public class Funcionario extends PessoaFisica {
+
 	private String carteiraTrabalho;
-	private String email;
 
-	Funcionario() {
-		this.nome = null;
-		this.cpf = null;
-		this.cep = null;
-		this.carteiraTrabalho = null;
-		this.email = null;
-	}
-
-	public String getNome() {
-		return nome;
-	}
-
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-
-	public String getCpf() {
-		return cpf;
-	}
-
-	public void setCpf(String cpf) {
-		this.cpf = cpf;
-	}
-
-	public String getCep() {
-		return cep;
-	}
-
-	public void setCep(String cep) {
-		this.cep = cep;
+	Funcionario(String nome, String email, String cpf, String carteiraTrabalho) {
+		super(nome, email, cpf);
+		this.carteiraTrabalho = carteiraTrabalho;
 	}
 
 	public String getCarteiraTrabalho() {
@@ -45,14 +17,6 @@ public class Funcionario {
 
 	public void setCarteiraTrabalho(String carteiraTrabalho) {
 		this.carteiraTrabalho = carteiraTrabalho;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
 	}
 
 }
