@@ -22,8 +22,11 @@ public class CadastroClientes {
 			throw new ClienteNaoCadastradoException();
 	}
 	
-	public boolean existe(String cpf)  {
-		return clientes.existe(cpf);
+	public boolean existe(String cpf)  throws ClienteNaoCadastradoException{
+		if(clientes.existe(cpf)) {
+			return clientes.existe(cpf);
+		}else
+			throw new ClienteNaoCadastradoException();
 	}
 	
 	public Cliente procurar(String cpf) throws ClienteNaoCadastradoException{
