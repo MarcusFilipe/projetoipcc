@@ -13,3 +13,4 @@ public interface RepositorioProdutos {
 
 	public boolean existe(String id);
 }
+// fred
