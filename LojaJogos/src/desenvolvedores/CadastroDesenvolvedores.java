@@ -9,34 +9,34 @@ public class CadastroDesenvolvedores
 	}
 	public void cadastrar(Desenvolvedor desenvolvedor)throws DesenvolvedorJaCadastradoException
 	{
-		if(!desenvolvedores.existe(desenvolvedor.getCnpj()))
-			desenvolvedores.inserir(desenvolvedor);
+		if(!this.desenvolvedores.existe(desenvolvedor.getCnpj()))
+			this.desenvolvedores.inserir(desenvolvedor);
 		else
 			throw new DesenvolvedorJaCadastradoException(desenvolvedor);
 	}
 	public void remover(String cnpj) throws DesenvolvedorNaoCadastradoException
 	{
-		if(desenvolvedores.existe(cnpj))
-			desenvolvedores.remover(cnpj);
+		if(this.desenvolvedores.existe(cnpj))
+			this.desenvolvedores.remover(cnpj);
 		else
 			throw new DesenvolvedorNaoCadastradoException();	
 	}
 	public Desenvolvedor procurar(String cnpj)throws DesenvolvedorNaoCadastradoException
 	{
-		if(desenvolvedores.existe(cnpj))
-			return desenvolvedores.procurar(cnpj);
+		if(this.desenvolvedores.existe(cnpj))
+			return this.desenvolvedores.procurar(cnpj);
 		else
 			throw new DesenvolvedorNaoCadastradoException();
 	}
 	public void atualiza(Desenvolvedor desenvolvedor)throws DesenvolvedorNaoCadastradoException
 	{
-		if(desenvolvedores.existe(desenvolvedor.getCnpj()))
-			desenvolvedores.atualiza(desenvolvedor);
+		if(this.desenvolvedores.existe(desenvolvedor.getCnpj()))
+			this.desenvolvedores.atualiza(desenvolvedor);
 		else
 			throw new DesenvolvedorNaoCadastradoException();
 	}
 	public boolean existe(String cnpj)
 	{
-		return desenvolvedores.existe(cnpj);
+		return this.desenvolvedores.existe(cnpj);
 	}
 }
