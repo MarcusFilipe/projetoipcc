@@ -7,6 +7,10 @@ import produtos.*;
 import usuarios.*;
 import desenvolvedores.*;
 import funcionarios.*;
+import orientacaobasica.Cliente;
+import orientacaobasica.ClienteJaCadastradoException;
+import orientacaobasica.ClienteNaoCadastradoException;
+
 import java.util.*;
 public class Programa {
 	public static void main(String[] args) {
@@ -110,6 +114,109 @@ public class Programa {
 				e2.printStackTrace();
 			}//AQUI ENTRA OS CATCH'S COM OS EXCEPTION DOS OUTROS 
 		}
+		
+		while(!in.hasNext("FIM")) {
+			//System.out.println("Você deseja utilizar um repositório de array ou lista?");
+			
+			
+			String tipo = in.nextLine();
+			if(tipo.equals("array")) {
+				//System.out.println("O que você deseja fazer?");
+				String comando = in.nextLine();
+				if(comando.equals("inserir cliente")) {
+					System.out.println("Digite o nome do cliente, email, cpf e nickname(sempre pulando uma linha)");
+					Cliente a = new Cliente(in.nextLine(), in.nextLine(), in.nextLine(), in.nextLine());
+					try{
+						f.cadastrarCliente(a);
+					}catch(ClienteJaCadastradoException e) { 
+						System.out.println(e.getMessage());
+					}
+				}else if(comando.equals("remover cliente")) {
+					System.out.println("Digite o cpf do cliente a ser removido");
+					try{
+						f.removerCliente(in.nextLine());
+					}catch(ClienteNaoCadastradoException e) {
+						System.out.println(e.getMessage());
+					}
+				}else if(comando.equals("procurar cliente")) {
+					System.out.println("Digite o cpf do cliente a ser procurado");
+					try{
+						Cliente c = f.procurarCliente(in.nextLine());
+						System.out.println("Nome do cliente:"+c.getNome()+"\nEmail do cliente:"+c.getEmail()+"\nNickname do cliente:"+c.getNickname());
+					}catch(ClienteNaoCadastradoException e) {
+						System.out.println(e.getMessage());
+					}
+				}else if(comando.equals("atualizar cliente")) {
+					System.out.println("Digite o novo nome do cliente,o mesmo cpf, novo email, e novo nickname(sempre pulando uma linha)");
+					Cliente b = new Cliente(in.nextLine(), in.nextLine(), in.nextLine(), in.nextLine());
+					try{
+					f.atualizarCliente(b);
+					}catch(ClienteNaoCadastradoException e) {
+						System.out.println(e.getMessage());
+					}
+					
+				}else if(comando.equals("existe cliente")) {
+					try{
+						if(f.existeCliente(in.nextLine()))
+							System.out.println("Cliente Cadastrado");
+					}catch(ClienteNaoCadastradoException e) {
+						System.out.println(e.getMessage());
+					}
+					
+				}
+					
+				
+		
+			}else if(tipo.equals("lista")) {
+				String comando = in.nextLine();
+				if(comando.equals("inserir cliente")) {
+					System.out.println("Digite o nome do cliente, email, cpf e nickname(sempre pulando uma linha)");
+					Cliente a = new Cliente(in.nextLine(), in.nextLine(), in.nextLine(), in.nextLine());
+					try{
+						f1.cadastrarCliente(a);
+					}catch(ClienteJaCadastradoException e) { 
+						System.out.println(e.getMessage());
+					}
+				}else if(comando.equals("remover cliente")) {
+					System.out.println("Digite o cpf do cliente a ser removido");
+					try{
+						f1.removerCliente(in.nextLine());
+					}catch(ClienteNaoCadastradoException e) {
+						System.out.println(e.getMessage());
+					}
+				}else if(comando.equals("procurar cliente")) {
+					System.out.println("Digite o cpf do cliente a ser procurado");
+					try{
+						Cliente c = f1.procurarCliente(in.nextLine());
+						System.out.println("Nome do cliente:"+c.getNome()+"\nEmail do cliente:"+c.getEmail()+"\nNickname do cliente:"+c.getNickname());
+					}catch(ClienteNaoCadastradoException e) {
+						System.out.println(e.getMessage());
+					}
+				}else if(comando.equals("atualizar cliente")) {
+					System.out.println("Digite o novo nome do cliente,o mesmo cpf, novo email, e novo nickname(sempre pulando uma linha)");
+					Cliente b = new Cliente(in.nextLine(), in.nextLine(), in.nextLine(), in.nextLine());
+					try{
+					f1.atualizarCliente(b);
+					}catch(ClienteNaoCadastradoException e) {
+						System.out.println(e.getMessage());
+					}
+					
+				}else if(comando.equals("existe cliente")) {
+					try{
+						if(f1.existeCliente(in.nextLine()))
+							System.out.println("Cliente Cadastrado");
+					}catch(ClienteNaoCadastradoException e) {
+						System.out.println(e.getMessage());
+					}
+					
+				}
+			}
+				
+		}
+		
+		
+		
+		
 		in.close();
 	}
 }
