@@ -12,16 +12,13 @@ public class RepositorioVendaArray implements RepositorioVenda {
 		++index;
 	}
 	public void remover(String id) {
-		for (int i = 0 ; i<this.index ; ++i) {
-			if (vendas[i].getId()==id) {
-				vendas[i]=null;
-				Venda aux;
-				for (int j = i ; j<this.index-1 ; j+=2) {
-					aux=vendas[j];
-					vendas[j]=vendas[j+1];
-					vendas[j+1]=aux;
-				}--index;
-			}
+		int aux = getIndex(id);
+		vendas[aux]=null;
+		while(aux<this.index-1) {
+			Venda auxo = vendas[aux];
+			vendas[aux]=vendas[aux+1];
+			vendas[aux+1]=auxo;
+			++aux;
 		}
 	}
 	public void atualizar(Venda venda) {
@@ -31,7 +28,7 @@ public class RepositorioVendaArray implements RepositorioVenda {
 	public Venda procurar(String id) {
 		Venda aux=null;
 		for (int i = 0 ; i<this.index ; ++i) {
-			if (vendas[i].getId()==id) {
+			if (vendas[i].getId().contentEquals(id)) {
 				aux = vendas[i];
 			}
 		}return aux;
@@ -39,7 +36,7 @@ public class RepositorioVendaArray implements RepositorioVenda {
 	public boolean existe(String id) {
 		boolean kapa = false;
 		for (int i = 0 ; i<this.index ; ++i) {
-			if (vendas[i].getId()==id) {
+			if (vendas[i].getId().contentEquals(id)) {
 				kapa=true;
 			}
 		}return kapa;
@@ -47,7 +44,7 @@ public class RepositorioVendaArray implements RepositorioVenda {
 	private int getIndex(String id) {
 		int index = -1;
 		for (int i = 0 ; i<this.index ; ++i) {
-			if (vendas[i].getId()==id) {
+			if (vendas[i].getId().contentEquals(id)) {
 				index=i;
 			}
 		}return index;

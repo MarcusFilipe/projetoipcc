@@ -1,10 +1,10 @@
 package vendas;
-import produtos.RepositorioProduto;
+import produtos.RepositorioProdutos;
 public class Venda {
 	private String id;
-	private RepositorioProduto produto;
+	private RepositorioProdutos produto;
 	private double valor;
-	public Venda(String id, RepositorioProduto produto, double valor){
+	public Venda(String id, RepositorioProdutos produto, double valor){
 		this.id=id;
 		this.produto=produto;
 		this.valor=valor;
@@ -12,7 +12,7 @@ public class Venda {
 	public String getId() {
 		return this.id;
 	}
-	public RepositorioProduto getProduto() {
+	public RepositorioProdutos getProduto() {
 		return this.produto;
 	}
 	public double getValor() {
@@ -21,7 +21,7 @@ public class Venda {
 	public void setValor(double valor) {
 		this.valor=valor;
 	}
-	public void setProduto(RepositorioProduto produto) {
+	public void setProduto(RepositorioProdutos produto) {
 		this.produto=produto;
 	}
 }
