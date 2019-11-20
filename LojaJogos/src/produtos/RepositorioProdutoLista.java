@@ -4,50 +4,50 @@ public class RepositorioProdutoLista {
 	private Produto produtos;
 	private RepositorioProdutoLista proximo;
 
-	public void inserir(Produto produto) {
+	public void inserirProduto(Produto produto) {
 		if (this.produtos == null) {
 			this.produtos = produto;
 			this.proximo = new RepositorioProdutoLista();
 		} else if (this.produtos != null) {
-			this.proximo.inserir(produto);
+			this.proximo.inserirProduto(produto);
 		}
 	}
 
-	public void remover(String id) throws ProdutoNaoCadastradoException {
+	public void removerProduto(String id) throws ProdutoNaoCadastradoException {
 		if (this.produtos != null && this.produtos.getId().equals(id)) {
 			this.produtos = this.proximo.produtos;
 			this.proximo = this.proximo.proximo;
 		} else if (this.produtos != null) {
-			this.proximo.remover(id);
+			this.proximo.removerProduto(id);
 		} else
 			id = "";
 	}
 
-	public boolean existe(String id) {
+	public boolean existeProduto(String id) {
 		if (this.produtos != null && this.produtos.getId().equals(id)) {
 			return true;
 		} else if (this.produtos != null) {
-			return this.proximo.existe(id);
+			return this.proximo.existeProduto(id);
 		} else {
 			return false;
 		}
 	}
 
-	public Produto procurar(String id) throws ProdutoNaoCadastradoException {
+	public Produto procurarProduto(String id) throws ProdutoNaoCadastradoException {
 		if (this.produtos != null && this.produtos.getId().equals(id)) {
 			return this.produtos;
 		} else if (this.produtos != null) {
-			return this.proximo.procurar(id);
+			return this.proximo.procurarProduto(id);
 		} else {
 			return null;
 		}
 	}
 
-	public void atualizar(Produto produto) throws ProdutoNaoCadastradoException {
+	public void atualizarProduto(Produto produto) throws ProdutoNaoCadastradoException {
 		if (this.produtos != null && this.produtos.getId().equals(produto.getId())) {
 			this.produtos = produto;
 		} else if (this.produtos != null) {
-			this.proximo.atualizar(produto);
+			this.proximo.atualizarProduto(produto);
 		} else {
 			produto = null;
 		}

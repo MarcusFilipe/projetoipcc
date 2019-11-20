@@ -84,6 +84,27 @@ public class Fachada {
 		return this.vendas.existe(id);
 	}
 	
+	//produtos
+	
+	public void inserirProduto(Produto produto) {
+		this.inserirProduto(produto);
+	}
+
+	public void removerProduto(String id) throws ProdutoNaoCadastradoException{
+		this.removerProduto(id);
+	}
+
+	public void atualizarProduto(Produto produto) throws ProdutoNaoCadastradoException{
+		this.atualizarProduto(produto);
+	}
+
+	public Produto procurarProduto(String id) throws ProdutoNaoCadastradoException{
+		return this.procurarProduto(id);
+	}
+
+	public boolean existeProduto(String id) {
+		return this.existeProduto(id);
+	}
 	
 	
 }

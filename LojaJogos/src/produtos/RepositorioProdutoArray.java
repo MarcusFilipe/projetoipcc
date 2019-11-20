@@ -9,12 +9,12 @@ public class RepositorioProdutoArray implements RepositorioProdutos {
 		index = 0;
 	}
 
-	public void inserir(Produto dados) {
+	public void inserirProduto(Produto dados) {
 		produto[index] = dados;
 		index++;
 	}
 
-	public void remover(String id) {
+	public void removerProduto(String id) {
 		int index = this.getPosicao(id);
 		if (index != this.index) {
 			this.index = this.index - 1;
@@ -23,14 +23,14 @@ public class RepositorioProdutoArray implements RepositorioProdutos {
 		}
 	}
 
-	public void atualizar(Produto id) {
+	public void atualizarProduto(Produto id) {
 		int index = this.getPosicao(id.getId());
 		if (index != this.index) {
 			this.produto[index] = id;
 		}
 	}
 
-	public Produto procurar(String id) {
+	public Produto procurarProduto(String id) {
 		Produto resposta = null;
 		int index = this.getPosicao(id);
 		if (index != this.index) {
@@ -39,7 +39,7 @@ public class RepositorioProdutoArray implements RepositorioProdutos {
 			return resposta;
 			}
 
-	public boolean existe(String id) {
+	public boolean existeProduto(String id) {
 		int index = this.getPosicao(id);
 		boolean resposta = false;
 		if (index < this.index) {
