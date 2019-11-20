@@ -8,17 +8,15 @@ public class RepositorioVendaArray implements RepositorioVenda {
 		index = 0;
 	}
 	public void inserir(Venda venda) {
-		vendas[index]=venda;
-		++index;
+		this.vendas[index]=venda;
+		++this.index;
 	}
 	public void remover(String id) {
 		int aux = getIndex(id);
-		vendas[aux]=null;
-		while(aux<this.index-1) {
-			Venda auxo = vendas[aux];
-			vendas[aux]=vendas[aux+1];
-			vendas[aux+1]=auxo;
-			++aux;
+		if (aux != this.index) {
+			this.index = this.index - 1;
+			this.vendas[index] = this.vendas[this.index];
+			this.vendas[this.index] = null;
 		}
 	}
 	public void atualizar(Venda venda) {
