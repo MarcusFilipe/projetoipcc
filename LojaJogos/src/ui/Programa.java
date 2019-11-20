@@ -5,6 +5,7 @@ import java.util.Scanner;
 import clientes.*;
 import produtos.*;
 import usuarios.*;
+import vendas.*;
 import desenvolvedores.*;
 import funcionarios.*;
 import orientacaobasica.Cliente;
@@ -19,7 +20,7 @@ public class Programa {
 		Cliente cl = new Cliente("Marcus","mfbm","046.468.694-62","skrix");
 		Cliente cl1 = new Cliente("Wilson", "jwcfj", "189.340.503-12","uiusu");
 		Cliente cl2 = new Cliente("Alice","abm","046.468.694-62","skrix");
-		Cliente cl3 = new Cliente("Pedro","pvlb","105.930.450-89","éOuzi");
+		Cliente cl3 = new Cliente("Pedro","pvlb","105.930.450-89","ï¿½Ouzi");
 		Cliente cl4 = new Cliente("Frederico","fbsm","193.149.560-69","Fred");
 		
 		
@@ -30,9 +31,11 @@ public class Programa {
 		RepositorioDesenvolvedores listaDesenvolvedores = new RepositorioDesenvolvedorLista();
 		RepositorioFuncionario arrayFuncionarios = new RepositorioFuncionarioArray(100);
 		RepositorioFuncionario listaFuncionarios = new RepositorioFuncionarioLista();
+		RepositorioVenda arrayVendas = new RepositorioVendaArray(100);
+		RepositorioVenda listaVendas = new RepositorioVendaLista();
 
-		Fachada f = new Fachada(arrayClientes, arrayDesenvolvedores, arrayFuncionarios);
-		Fachada f1 = new Fachada(listaClientes, listaDesenvolvedores, listaFuncionarios);
+		Fachada f = new Fachada(arrayClientes, arrayDesenvolvedores, arrayFuncionarios, arrayVendas);
+		Fachada f1 = new Fachada(listaClientes, listaDesenvolvedores, listaFuncionarios, listaVendas);
 		
 		String acao = "";
 		String classeEntrada="";
@@ -116,12 +119,12 @@ public class Programa {
 		}
 		
 		while(!in.hasNext("FIM")) {
-			//System.out.println("Você deseja utilizar um repositório de array ou lista?");
+			//System.out.println("Vocï¿½ deseja utilizar um repositï¿½rio de array ou lista?");
 			
 			
 			String tipo = in.nextLine();
 			if(tipo.equals("array")) {
-				//System.out.println("O que você deseja fazer?");
+				//System.out.println("O que vocï¿½ deseja fazer?");
 				String comando = in.nextLine();
 				if(comando.equals("inserir cliente")) {
 					System.out.println("Digite o nome do cliente, email, cpf e nickname(sempre pulando uma linha)");

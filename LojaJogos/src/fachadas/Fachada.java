@@ -10,13 +10,15 @@ public class Fachada {
 	private CadastroClientes clientes;
 	private CadastroDesenvolvedores desenvolvedores;
 	private CadastroFuncionarios funcionarios;
+	private CadastroVenda vendas;
 	
 	public Fachada(RepositorioClientes repClientes, RepositorioDesenvolvedores repDesenvolvedores,
-			RepositorioFuncionario repFuncionarios){
+			RepositorioFuncionario repFuncionarios, RepositorioVenda repVendas){
 		this.clientes = new CadastroClientes(repClientes);
 		this.desenvolvedores = new CadastroDesenvolvedores(repDesenvolvedores);
 		this.funcionarios = new CadastroFuncionarios(repFuncionarios);
-		//adicionar repositorios de venda e produtos(pietro e fred)
+		this.vendas=new CadastroVenda(repVendas);
+		//adicionar repositorios produtos(fred)
 		
 	}
 	
@@ -66,6 +68,21 @@ public class Fachada {
 	//produto
 	
 	//venda
+	public void inserirVenda(Venda venda) throws VendaJaCadastradaException {
+		this.vendas.inserir(venda);
+	}
+	public void removerVenda(String id) throws VendaInexistenteException {
+		this.vendas.remover(id);
+	}
+	public void atualizarVenda(Venda venda) throws VendaInexistenteException {
+		this.vendas.atualizar(venda);
+	}
+	public Venda procurarVenda(String id) throws VendaInexistenteException {
+		return this.vendas.procurar(id);
+	}
+	public boolean existeVenda(String id) {
+		return this.vendas.existe(id);
+	}
 	
 	
 	

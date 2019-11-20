@@ -2,6 +2,9 @@ package vendas;
 
 public class CadastroVenda {
 	private RepositorioVenda vendas;
+	public CadastroVenda(RepositorioVenda vendas) {
+		this.vendas = vendas;
+	}
 	public void inserir(Venda venda) throws VendaJaCadastradaException {
 		if (!existe(venda.getId())) {
 			this.vendas.inserir(venda);
