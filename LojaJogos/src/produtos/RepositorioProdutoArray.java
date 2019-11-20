@@ -56,5 +56,5 @@ public class RepositorioProdutoArray implements RepositorioProdutos {
 		}
 		return posicao;
 	}
-//q
+//
 }
