@@ -26,44 +26,44 @@ public class Fachada {
 	
 	//cliente
 	public void cadastrarCliente(Cliente cliente) throws ClienteJaCadastradoException{
-		clientes.cadastrar(cliente);
+		this.clientes.cadastrar(cliente);
 	}
 	
 	public void removerCliente(String cpf) throws ClienteNaoCadastradoException{
-		clientes.remover(cpf);
+		this.clientes.remover(cpf);
 	}
 	
 	public Cliente procurarCliente(String cpf) throws ClienteNaoCadastradoException{
-		return clientes.procurar(cpf);
+		return this.clientes.procurar(cpf);
 	}
 	
 	public void atualizarCliente(Cliente cliente) throws ClienteNaoCadastradoException{
-		clientes.atualizar(cliente);
+		this.clientes.atualizar(cliente);
 	}
 	
 	public boolean existeCliente(String cpf) throws ClienteNaoCadastradoException{
-		return clientes.existe(cpf);
+		return this.clientes.existe(cpf);
 	}
 	
 	//desenvolvedor
 	public void cadastrarDesenvolvedor(Desenvolvedor desenvolvedor) throws DesenvolvedorJaCadastradoException{
-		desenvolvedores.cadastrar(desenvolvedor);
+		this.desenvolvedores.cadastrar(desenvolvedor);
 	}
 	
 	public void removerDesenvolvedor(String cnpj) throws DesenvolvedorNaoCadastradoException{
-		desenvolvedores.remover(cnpj);
+		this.desenvolvedores.remover(cnpj);
 	}
 	
 	public Desenvolvedor procurarDesenvolvedor(String cpf) throws DesenvolvedorNaoCadastradoException{
-		return desenvolvedores.procurar(cpf);
+		return this.desenvolvedores.procurar(cpf);
 	}
 	
 	public void atualizarDesenvolvedor(Desenvolvedor desenvolvedor) throws DesenvolvedorNaoCadastradoException{
-		desenvolvedores.atualiza(desenvolvedor);
+		this.desenvolvedores.atualiza(desenvolvedor);
 	}
 	
 	public boolean existeDesenvolvedor(String cpf){
-		return desenvolvedores.existe(cpf);
+		return this.desenvolvedores.existe(cpf);
 	}
 	
 	//funcionario
