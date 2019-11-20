@@ -1,6 +1,6 @@
 package produtos;
 
-public class RepositorioProdutoLista implements RepositorioProdutos{
+public class RepositorioProdutoLista implements RepositorioProdutos {
 	private Produto produtos;
 	private RepositorioProdutoLista proximo;
 
@@ -13,14 +13,13 @@ public class RepositorioProdutoLista implements RepositorioProdutos{
 		}
 	}
 
-	public void removerProduto(String id) throws ProdutoNaoCadastradoException {
+	public void removerProduto(String id) {
 		if (this.produtos != null && this.produtos.getId().equals(id)) {
 			this.produtos = this.proximo.produtos;
 			this.proximo = this.proximo.proximo;
 		} else if (this.produtos != null) {
 			this.proximo.removerProduto(id);
-		} else
-			id = "";
+		}
 	}
 
 	public boolean existeProduto(String id) {
@@ -33,7 +32,7 @@ public class RepositorioProdutoLista implements RepositorioProdutos{
 		}
 	}
 
-	public Produto procurarProduto(String id) throws ProdutoNaoCadastradoException {
+	public Produto procurarProduto(String id) {
 		if (this.produtos != null && this.produtos.getId().equals(id)) {
 			return this.produtos;
 		} else if (this.produtos != null) {
@@ -43,16 +42,11 @@ public class RepositorioProdutoLista implements RepositorioProdutos{
 		}
 	}
 
-	public void atualizarProduto(Produto produto) throws ProdutoNaoCadastradoException {
+	public void atualizarProduto(Produto produto) {
 		if (this.produtos != null && this.produtos.getId().equals(produto.getId())) {
 			this.produtos = produto;
 		} else if (this.produtos != null) {
 			this.proximo.atualizarProduto(produto);
-		} else {
-			produto = null;
 		}
-
 	}
-	
-///
 }

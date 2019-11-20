@@ -6,12 +6,12 @@ public class RepositorioFuncionarioArray implements RepositorioFuncionario {
 	private int index;
 
 	public RepositorioFuncionarioArray(int size) {
-		funcionario = new Funcionario[size];
+		this.funcionario = new Funcionario[size];
 		index = 0;
 	}
 
 	public void inserir(Funcionario dados) {
-		funcionario[index] = dados;
+		this.funcionario[index] = dados;
 		index++;
 	}
 

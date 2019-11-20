@@ -8,7 +8,7 @@ public class CadastroProdutos {
 	}
 
 	public void Cadastrar(Produto produto) throws ProdutoJaCadastradoException {
-		if (this.produto.existeProduto(produto.getId()) == false) {
+		if (this.produto.existeProduto(produto.getId())) {
 			throw new ProdutoJaCadastradoException(produto);
 		} else {
 			this.produto.inserirProduto(produto);
@@ -16,34 +16,26 @@ public class CadastroProdutos {
 	}
 
 	public Produto procurar(String id) throws ProdutoNaoCadastradoException {
-		if (this.produto.procurarProduto(id).equals(null)) {
-			throw new ProdutoNaoCadastradoException(id);
-		} else {
+		if (this.produto.existeProduto(id)) {
 			return this.produto.procurarProduto(id);
+		} else {
+			throw new ProdutoNaoCadastradoException(id);
 		}
 	}
 
 	public void remover(String id) throws ProdutoNaoCadastradoException {
-		if (this.produto.procurarProduto(id).equals(null)) {
-			throw new ProdutoNaoCadastradoException(id);
-		} else {
+		if (this.produto.existeProduto(id)) {
 			this.produto.removerProduto(id);
+		} else {
+			throw new ProdutoNaoCadastradoException(id);
 		}
 	}
 
 	public void atualizar(Produto produto) throws ProdutoNaoCadastradoException {
 		if (this.produto.existeProduto(produto.getId())) {
-			throw new ProdutoNaoCadastradoException(produto.getId());
-		} else {
 			this.produto.atualizarProduto(produto);
-		}
-	}
-	public boolean existe (String id) throws ProdutoNaoCadastradoException {
-		if (this.produto.existeProduto(id) == false) {
-			throw new ProdutoNaoCadastradoException(id);
 		} else {
-			return this.produto.existeProduto(id);
+			throw new ProdutoNaoCadastradoException(produto.getId());
 		}
 	}
-	///
 }

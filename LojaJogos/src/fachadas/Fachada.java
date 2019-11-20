@@ -11,14 +11,16 @@ public class Fachada {
 	private CadastroDesenvolvedores desenvolvedores;
 	private CadastroFuncionarios funcionarios;
 	private CadastroVenda vendas;
+	private CadastroProdutos produtos;
 	
 	public Fachada(RepositorioClientes repClientes, RepositorioDesenvolvedores repDesenvolvedores,
-			RepositorioFuncionario repFuncionarios, RepositorioVenda repVendas){
+			RepositorioFuncionario repFuncionarios, RepositorioVenda repVendas, RepositorioProdutos repProdutos){
 		this.clientes = new CadastroClientes(repClientes);
 		this.desenvolvedores = new CadastroDesenvolvedores(repDesenvolvedores);
 		this.funcionarios = new CadastroFuncionarios(repFuncionarios);
 		this.vendas=new CadastroVenda(repVendas);
-		//adicionar repositorios produtos(fred)
+		this.produtos = new CadastroProdutos(repProdutos);
+
 		
 	}
 	
@@ -63,11 +65,28 @@ public class Fachada {
 	public boolean existeDesenvolvedor(String cpf){
 		return desenvolvedores.existe(cpf);
 	}
+	
 	//funcionario
 	
-	//produto
+	public void cadastrarFuncionario(Funcionario funcionario) throws FuncionarioJaCadastradoException{
+		this.funcionarios.cadastrar(funcionario);
+	}
+	
+	public void removerFuncionario(String carteiraTrabalho) throws FuncionarioNaoCadastradoException{
+		this.funcionarios.remover(carteiraTrabalho);
+	}
+	
+	public Funcionario procurarFuncionario(String carteiraTrabalho) throws FuncionarioNaoCadastradoException{
+		return this.funcionarios.procurar(carteiraTrabalho);
+	}
+	
+	public void atualizarFuncionario(Funcionario funcionario) throws FuncionarioNaoCadastradoException{
+		this.funcionarios.atualizar(funcionario);
+	}
+	
 	
 	//venda
+	
 	public void inserirVenda(Venda venda) throws VendaJaCadastradaException {
 		this.vendas.inserir(venda);
 	}
@@ -86,25 +105,20 @@ public class Fachada {
 	
 	//produtos
 	
-	public void inserirProduto(Produto produto) {
-		this.inserirProduto(produto);
+	public void inserirProduto(Produto produto) throws ProdutoJaCadastradoException {
+		this.produtos.Cadastrar(produto);
 	}
 
 	public void removerProduto(String id) throws ProdutoNaoCadastradoException{
-		this.removerProduto(id);
+		this.produtos.remover(id);
 	}
 
 	public void atualizarProduto(Produto produto) throws ProdutoNaoCadastradoException{
-		this.atualizarProduto(produto);
+		this.produtos.atualizar(produto);
 	}
 
 	public Produto procurarProduto(String id) throws ProdutoNaoCadastradoException{
-		return this.procurarProduto(id);
+		return this.produtos.procurar(id);
 	}
 
-	public boolean existeProduto(String id) {
-		return this.existeProduto(id);
-	}
-	
-	
 }

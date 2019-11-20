@@ -5,12 +5,12 @@ public class RepositorioProdutoArray implements RepositorioProdutos {
 	private int index;
 
 	public RepositorioProdutoArray(int tamanho) {
-		produto = new Produto[tamanho];
+		this.produto = new Produto[tamanho];
 		index = 0;
 	}
 
 	public void inserirProduto(Produto dados) {
-		produto[index] = dados;
+		this.produto[index] = dados;
 		index++;
 	}
 
@@ -52,7 +52,6 @@ public class RepositorioProdutoArray implements RepositorioProdutos {
 		int posicao = 0;
 		while (!produto[posicao].getId().equals(id) && posicao < this.index) {
 			posicao++;
-			return posicao;
 		}
 		return posicao;
 	}

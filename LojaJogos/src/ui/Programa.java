@@ -8,9 +8,9 @@ import usuarios.*;
 import vendas.*;
 import desenvolvedores.*;
 import funcionarios.*;
-import orientacaobasica.Cliente;
-import orientacaobasica.ClienteJaCadastradoException;
-import orientacaobasica.ClienteNaoCadastradoException;
+//import orientacaobasica.Cliente;
+//import orientacaobasica.ClienteJaCadastradoException;
+//import orientacaobasica.ClienteNaoCadastradoException;
 
 import java.util.*;
 public class Programa {
@@ -36,8 +36,8 @@ public class Programa {
 		RepositorioProdutos arrayProdutos = new RepositorioProdutoArray(100);
 		RepositorioProdutos listaProdutos = new RepositorioProdutoLista();
 
-		Fachada f = new Fachada(arrayClientes, arrayDesenvolvedores, arrayFuncionarios, arrayVendas);
-		Fachada f1 = new Fachada(listaClientes, listaDesenvolvedores, listaFuncionarios, listaVendas);
+		Fachada f = new Fachada(arrayClientes, arrayDesenvolvedores, arrayFuncionarios, arrayVendas, arrayProdutos);
+		Fachada f1 = new Fachada(listaClientes, listaDesenvolvedores, listaFuncionarios, listaVendas, listaProdutos);
 		
 		String acao = "";
 		String classeEntrada="";
