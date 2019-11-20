@@ -50,7 +50,7 @@ public class Fachada {
 		desenvolvedores.remover(cnpj);
 	}
 	
-	public Desenvolvedor procurar(String cpf) throws DesenvolvedorNaoCadastradoException{
+	public Desenvolvedor procurarDesenvolvedor(String cpf) throws DesenvolvedorNaoCadastradoException{
 		return desenvolvedores.procurar(cpf);
 	}
 	
