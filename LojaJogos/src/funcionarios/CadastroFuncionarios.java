@@ -14,9 +14,16 @@ public class CadastroFuncionarios {
 			this.funcionario.inserir(dados);
 	}
 
-	public void remover(Funcionario dados) throws FuncionarioNaoCadastradoException {
-		if (this.funcionario.existe(dados.getCarteiraTrabalho())) {
-			this.funcionario.remover(dados.getCarteiraTrabalho());
+	public Funcionario procurar(String carteiraTrabalho) throws FuncionarioNaoCadastradoException {
+		if (this.funcionario.existe(carteiraTrabalho)) {
+			return this.funcionario.procurar(carteiraTrabalho);
+		} else
+			throw new FuncionarioNaoCadastradoException();
+	}
+
+	public void remover(String carteiraTrabalho) throws FuncionarioNaoCadastradoException {
+		if (this.funcionario.existe(carteiraTrabalho)) {
+			this.funcionario.remover(carteiraTrabalho);
 		} else
 			throw new FuncionarioNaoCadastradoException();
 	}
