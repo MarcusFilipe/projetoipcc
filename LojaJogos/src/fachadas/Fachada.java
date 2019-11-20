@@ -105,7 +105,7 @@ public class Fachada {
 	
 	//produtos
 	
-	public void inserirProduto(Produto produto) throws ProdutoJaCadastradoException {
+	public void inserirProduto(Produto produto,String cnpj) throws ProdutoJaCadastradoException, DesenvolvedorNaoCadastradoException {
 		this.produtos.Cadastrar(produto);
 		
 		this.desenvolvedores.procurar(cnpj).getProdutos().inserirProduto(produto);
