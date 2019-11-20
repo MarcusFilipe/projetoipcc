@@ -1,6 +1,6 @@
 package produtos;
 
-public class RepositorioProdutoLista {
+public class RepositorioProdutoLista implements RepositorioProdutos{
 	private Produto produtos;
 	private RepositorioProdutoLista proximo;
 

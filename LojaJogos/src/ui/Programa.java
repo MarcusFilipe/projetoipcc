@@ -33,6 +33,8 @@ public class Programa {
 		RepositorioFuncionario listaFuncionarios = new RepositorioFuncionarioLista();
 		RepositorioVenda arrayVendas = new RepositorioVendaArray(100);
 		RepositorioVenda listaVendas = new RepositorioVendaLista();
+		RepositorioProdutos arrayProdutos = new RepositorioProdutoArray(100);
+		RepositorioProdutos listaProdutos = new RepositorioProdutoLista();
 
 		Fachada f = new Fachada(arrayClientes, arrayDesenvolvedores, arrayFuncionarios, arrayVendas);
 		Fachada f1 = new Fachada(listaClientes, listaDesenvolvedores, listaFuncionarios, listaVendas);
