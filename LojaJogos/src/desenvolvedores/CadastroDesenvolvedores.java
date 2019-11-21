@@ -44,12 +44,7 @@ public class CadastroDesenvolvedores
 	{
 		return this.desenvolvedores.existe(cnpj);
 	}
-	public String listagemProdutos(String cnpj) throws DesenvolvedorNaoCadastradoException{
-		String resposta = this.procurar(cnpj).getRepositorioProdutosArray().listagemProduto();
-		if(resposta==null)
-			resposta="Lista Vazia!";
-		return resposta;
-	}
+	
 	public Produto procuraProduto(String cnpj,String id) throws DesenvolvedorNaoCadastradoException, ProdutoNaoCadastradoException{
 		Produto resposta= this.procurar(cnpj).getRepositorioProdutosArray().procurarProduto(id);
 		if(resposta!=null)

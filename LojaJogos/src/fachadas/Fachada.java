@@ -65,9 +65,7 @@ public class Fachada {
 	public boolean existeDesenvolvedor(String cnpj){
 		return this.desenvolvedores.existe(cnpj);
 	}
-	public String listagemProdutosDesenvolvedor(String cnpj) throws DesenvolvedorNaoCadastradoException {
-		return this.desenvolvedores.listagemProdutos(cnpj);
-	}
+	
 	public Produto procuraProdutoDesenvolvedor(String cnpj,String id) throws DesenvolvedorNaoCadastradoException, ProdutoNaoCadastradoException{
 		return desenvolvedores.procuraProduto(cnpj, id);
 	}
