@@ -26,13 +26,15 @@ public class Programa {
 		RepositorioVenda listaVendas = new RepositorioVendaLista();
 		RepositorioProdutos arrayProdutos = new RepositorioProdutoArray(100);
 		RepositorioProdutos listaProdutos = new RepositorioProdutoLista();
-
+		//fachada com os repositorios array
 		Fachada f = new Fachada(arrayClientes, arrayDesenvolvedores, arrayFuncionarios, arrayVendas, arrayProdutos);
+		//fachada com os repositorios de lista
 		Fachada f1 = new Fachada(listaClientes, listaDesenvolvedores, listaFuncionarios, listaVendas, listaProdutos);
 
-		String acao = "";
-		String classeEntrada = "";
+		String acao = new String();
+		String classeEntrada = new String();
 		String tipo = new String();
+		
 		while (in.hasNext()) {
 			try {
 
@@ -60,7 +62,7 @@ public class Programa {
 							System.out.println("Funcionario cadastrado com sucesso");
 							break;
 						case "PRODUTO":
-							f1.inserirProduto(new Produto(in.nextLine(), in.nextLine(), Double.parseDouble(in.nextLine()), in.nextLine(), in.nextLine()));
+							//f1.inserirProduto(new Produto(in.nextLine(), in.nextLine(), Double.parseDouble(in.nextLine()), in.nextLine(), in.nextLine()));
 							System.out.println("Produto cadastrado com sucesso");
 							break;
 						
@@ -170,7 +172,7 @@ public class Programa {
 								System.out.println("Funcionario cadastrado com sucesso");
 								break;
 							case "PRODUTO":
-								f.inserirProduto(new Produto(in.nextLine(), in.nextLine(), Double.parseDouble(in.nextLine()), in.nextLine(), in.nextLine()));
+								//f.inserirProduto(new Produto(in.nextLine(), in.nextLine(), Double.parseDouble(in.nextLine()), in.nextLine(), in.nextLine()));
 								System.out.println("Produto cadastrado com sucesso");
 								break;
 							
@@ -272,9 +274,10 @@ public class Programa {
 				e5.printStackTrace();
 			} catch(FuncionarioNaoCadastradoException e6) {
 				e6.printStackTrace();
-			} catch(ProdutoJaCadastradoException e7) {
-				e7.printStackTrace();
-			} catch (ProdutoNaoCadastradoException e8) {
+			} //catch(ProdutoJaCadastradoException e7) {
+				//e7.printStackTrace();
+			//}
+			catch (ProdutoNaoCadastradoException e8) {
 				e8.printStackTrace();
 			}
 		}
