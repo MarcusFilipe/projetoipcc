@@ -65,8 +65,23 @@ public class Fachada {
 	public boolean existeDesenvolvedor(String cnpj){
 		return this.desenvolvedores.existe(cnpj);
 	}
-	public String listaProdutosDesenvolvedor(String cnpj) throws DesenvolvedorNaoCadastradoException {
+	public String listagemProdutosDesenvolvedor(String cnpj) throws DesenvolvedorNaoCadastradoException {
 		return this.desenvolvedores.listagemProdutos(cnpj);
+	}
+	public Produto procuraProdutoDesenvolvedor(String cnpj,String id) throws DesenvolvedorNaoCadastradoException, ProdutoNaoCadastradoException{
+		return desenvolvedores.procuraProduto(cnpj, id);
+	}
+	public boolean existeProdutoDesenvolvedor(String cnpj,String id) throws DesenvolvedorNaoCadastradoException{
+		return desenvolvedores.existeProduto(cnpj, id);
+	}
+	public void cadastrarProdutoDesenvolvedor(String cnpj,Produto produto) throws DesenvolvedorNaoCadastradoException, ProdutoJaCadastradoException {
+		desenvolvedores.cadastrarProduto(cnpj, produto);
+	}
+	public void removerProdutoDesenvolvedor(String cnpj,String id)throws DesenvolvedorNaoCadastradoException, ProdutoNaoCadastradoException{
+		desenvolvedores.removerProduto(cnpj, id);
+	}
+	public void atualizarProdutoDesenvolvedor(String cnpj,Produto produto) throws ProdutoNaoCadastradoException, DesenvolvedorNaoCadastradoException{
+		desenvolvedores.atualizarProduto(cnpj, produto);
 	}
 	//funcionario
 	
@@ -124,5 +139,6 @@ public class Fachada {
 	public String listagemProduto() {
         return this.produtos.listagem();
     }
+	
 
 }

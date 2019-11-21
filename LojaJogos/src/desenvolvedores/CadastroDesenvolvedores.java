@@ -1,6 +1,7 @@
 package desenvolvedores;
 
 import produtos.Produto;
+import produtos.ProdutoJaCadastradoException;
 import produtos.ProdutoNaoCadastradoException;
 import produtos.RepositorioProdutoArray;
 
@@ -59,4 +60,23 @@ public class CadastroDesenvolvedores
 	public boolean existeProduto(String cnpj,String id) throws DesenvolvedorNaoCadastradoException{
 		return this.procurar(cnpj).getRepositorioProdutosArray().existeProduto(id);
 	}
+	public void cadastrarProduto(String cnpj,Produto produto) throws DesenvolvedorNaoCadastradoException, ProdutoJaCadastradoException {
+		if(!this.procurar(cnpj).getRepositorioProdutosArray().existeProduto(produto.getId()))
+			this.procurar(cnpj).getRepositorioProdutosArray().inserirProduto(produto);
+		else
+			throw new ProdutoJaCadastradoException(produto);
+	}
+	public void removerProduto(String cnpj,String id)throws DesenvolvedorNaoCadastradoException, ProdutoNaoCadastradoException {
+		if(this.procurar(cnpj).getRepositorioProdutosArray().existeProduto(id))
+			this.procurar(cnpj).getRepositorioProdutosArray().removerProduto(id);
+		else
+			throw new ProdutoNaoCadastradoException(id);
+	}
+	public void atualizarProduto(String cnpj,Produto produto) throws ProdutoNaoCadastradoException, DesenvolvedorNaoCadastradoException {
+		if(this.procurar(cnpj).getRepositorioProdutosArray().existeProduto(produto.getId()))
+			this.procurar(cnpj).getRepositorioProdutosArray().atualizarProduto(produto);
+		else
+			throw new ProdutoNaoCadastradoException(produto.getId());
+	}
 }
+

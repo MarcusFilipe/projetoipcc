@@ -50,6 +50,7 @@ public class Programa {
 						switch (classeEntrada) {
 						case "DESENVOLVEDOR":
 							RepositorioProdutoArray repositorioProdutosArray=new RepositorioProdutoArray(100);
+							
 							while(!in.hasNext("fimProdutos"))
 								repositorioProdutosArray.inserirProduto(new Produto(in.nextLine(), in.nextLine(), Double.parseDouble(in.nextLine()), in.nextLine(), in.nextLine()));
 							in.nextLine();
@@ -83,6 +84,10 @@ public class Programa {
 							if (in.hasNext())
 								in.nextLine();
 							break;
+						case "PRODUTODESENVOLVEDOR":
+							f1.cadastrarProdutoDesenvolvedor(in.nextLine(), new Produto(in.nextLine(), in.nextLine(), Double.parseDouble(in.nextLine()), in.nextLine(), in.nextLine()));
+							System.out.println("Produto inserido no repositorio de produtos de Desenvolvedor com sucesso");
+							break;
 						}
 						break;
 					}
@@ -109,6 +114,10 @@ public class Programa {
 						case "VENDA":
 							f1.removerVenda(in.nextLine());
 							System.out.println("Venda removida com sucesso");
+						case "PRODUTODESENVOLVEDOR":
+							f1.removerProdutoDesenvolvedor(in.nextLine(), in.nextLine());
+							System.out.println("Produto removido do repositorio de produtos de Desenvolvedor com sucesso");
+							break;
 						}
 						break;
 					}
@@ -134,6 +143,10 @@ public class Programa {
 							Venda e = f1.procurarVenda(in.nextLine());
 							String products = e.getProduto().listagemProduto();
 							System.out.println("A venda de id "+e.getId() + " inclui os produtos " + products + " e tem valor total de " + e.getValor());
+						case "PRODUTODESENVOLVEDOR":
+							Produto product=f1.procuraProdutoDesenvolvedor(in.nextLine(), in.nextLine());
+							System.out.println("nome -" +product.getNome() +"\ncategoria -"+ product.getCategoria()+"\npreco -"+product.getPreco());
+							break;
 						}
 						break;
 					}
@@ -172,6 +185,10 @@ public class Programa {
 							if (in.hasNextLine())
 								in.nextLine();
 							break;
+						case "PRODUTODESENVOLVEDOR":
+							f1.atualizarProdutoDesenvolvedor(in.nextLine(), new Produto(in.nextLine(), in.nextLine(), Double.parseDouble(in.nextLine()), in.nextLine(), in.nextLine()));
+							System.out.println("Produto do repositorio de produtos de Desenvolvedor atualizado com sucesso");
+							break;
 						}
 						break;
 					}
@@ -186,7 +203,9 @@ public class Programa {
 						case "VENDA":
 							System.out.println(f1.existeVenda(in.nextLine()));
 							break;
-						
+						case "PRODUTODESENVOLVEDOR":
+							System.out.println(f1.existeProdutoDesenvolvedor(in.nextLine(), in.nextLine()));
+							break;
 						}
 						break;
 					}
@@ -232,7 +251,10 @@ public class Programa {
 								if (in.hasNext())
 									in.nextLine();
 								break;
-							
+							case "PRODUTODESENVOLVEDOR":
+								f.cadastrarProdutoDesenvolvedor(in.nextLine(), new Produto(in.nextLine(), in.nextLine(), Double.parseDouble(in.nextLine()), in.nextLine(), in.nextLine()));
+								System.out.println("Produto inserido no repositorio de produtos de Desenvolvedor com sucesso");
+								break;
 							}
 							break;
 						}
@@ -259,7 +281,10 @@ public class Programa {
 							case "VENDA":
 								f.removerVenda(in.nextLine());
 								System.out.println("Venda removida com sucesso");
-							
+							case "PRODUTODESENVOLVEDOR":
+								f.removerProdutoDesenvolvedor(in.nextLine(), in.nextLine());
+								System.out.println("Produto removido do repositorio de produtos de Desenvolvedor com sucesso");
+								break;
 							}
 							break;
 						}
@@ -285,7 +310,10 @@ public class Programa {
 								Venda e = f.procurarVenda(in.nextLine());
 								String products = e.getProduto().listagemProduto();
 								System.out.println("A venda de id "+e.getId() + " inclui os produtos " + products + " e tem valor total de " + e.getValor());
-							
+							case "PRODUTODESENVOLVEDOR":
+								Produto product=f.procuraProdutoDesenvolvedor(in.nextLine(), in.nextLine());
+								System.out.println("nome -" +product.getNome() +"\ncategoria -"+ product.getCategoria()+"\npreco -"+product.getPreco());
+								break;
 							}
 							break;
 						}
@@ -324,6 +352,10 @@ public class Programa {
 								if (in.hasNextLine())
 									in.nextLine();
 								break;
+							case "PRODUTODESENVOLVEDOR":
+								f.atualizarProdutoDesenvolvedor(in.nextLine(), new Produto(in.nextLine(), in.nextLine(), Double.parseDouble(in.nextLine()), in.nextLine(), in.nextLine()));
+								System.out.println("Produto do repositorio de produtos de Desenvolvedor atualizado com sucesso");
+								break;
 							}
 							break;
 						}
@@ -337,6 +369,9 @@ public class Programa {
 								break;
 							case "VENDA":
 								System.out.println(f.existeVenda(in.nextLine()));
+							case "PRODUTODESENVOLVEDOR":
+								System.out.println(f.existeProdutoDesenvolvedor(in.nextLine(), in.nextLine()));
+								break;
 							}
 							break;
 						}
