@@ -169,6 +169,8 @@ public class Programa {
 								arrayProduto.inserirProduto(new Produto (in.nextLine(), in.nextLine(), Double.parseDouble(in.nextLine()), in.nextLine(), in.nextLine()));
 							}f1.atualizarVenda(new Venda(in.nextLine(),arrayProduto,in.nextDouble()));
 							System.out.println("Venda atualizada com sucesso");
+							if (in.hasNextLine())
+								in.nextLine();
 							break;
 						}
 						break;
@@ -319,6 +321,8 @@ public class Programa {
 									arrayProduto.inserirProduto(new Produto (in.nextLine(), in.nextLine(), Double.parseDouble(in.nextLine()), in.nextLine(), in.nextLine()));
 								}f.atualizarVenda(new Venda(in.nextLine(),arrayProduto,in.nextDouble()));
 								System.out.println("Venda atualizada com sucesso");
+								if (in.hasNextLine())
+									in.nextLine();
 								break;
 							}
 							break;
@@ -358,6 +362,8 @@ public class Programa {
 				e8.printStackTrace();
 			}catch (VendaJaCadastradaException e9) {
 				e9.printStackTrace();
+				if(in.hasNextLine())
+					in.nextLine();
 			}catch (VendaInexistenteException e10) {
 				e10.printStackTrace();
 			}
