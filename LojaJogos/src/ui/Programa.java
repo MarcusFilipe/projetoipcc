@@ -69,7 +69,7 @@ public class Programa {
 							System.out.println("Funcionario cadastrado com sucesso");
 							break;
 						case "PRODUTO":
-							//f1.inserirProduto(new Produto(in.nextLine(), in.nextLine(), Double.parseDouble(in.nextLine()), in.nextLine(), in.nextLine()));
+							f1.inserirProduto(new Produto(in.nextLine(), in.nextLine(), Double.parseDouble(in.nextLine()), in.nextLine(), in.nextLine()));
 							System.out.println("Produto cadastrado com sucesso");
 							break;
 						
@@ -152,7 +152,6 @@ public class Programa {
 						switch (classeEntrada) {
 						case "DESENVOLVEDOR": 
 							System.out.println(f1.existeDesenvolvedor(in.nextLine()));
-							// System.out.println(f1.existeDesenvolvedor("400289-22"));
 							break;
 						case "CLIENTE":
 							System.out.println(f1.existeCliente(in.nextLine()));
@@ -189,7 +188,7 @@ public class Programa {
 								System.out.println("Funcionario cadastrado com sucesso");
 								break;
 							case "PRODUTO":
-								//f.inserirProduto(new Produto(in.nextLine(), in.nextLine(), Double.parseDouble(in.nextLine()), in.nextLine(), in.nextLine()));
+								f.inserirProduto(new Produto(in.nextLine(), in.nextLine(), Double.parseDouble(in.nextLine()), in.nextLine(), in.nextLine()));
 								System.out.println("Produto cadastrado com sucesso");
 								break;
 							
@@ -272,7 +271,6 @@ public class Programa {
 							switch (classeEntrada) {
 							case "DESENVOLVEDOR": 
 								System.out.println(f.existeDesenvolvedor(in.nextLine()));
-								// System.out.println(f1.existeDesenvolvedor("400289-22"));
 								break;
 							case "CLIENTE":
 								System.out.println(f.existeCliente(in.nextLine()));
@@ -296,9 +294,9 @@ public class Programa {
 				e5.printStackTrace();
 			} catch(FuncionarioNaoCadastradoException e6) {
 				e6.printStackTrace();
-			} //catch(ProdutoJaCadastradoException e7) {
-				//e7.printStackTrace();
-			//}
+			} catch(ProdutoJaCadastradoException e7) {
+				e7.printStackTrace();
+			}
 			catch (ProdutoNaoCadastradoException e8) {
 				e8.printStackTrace();
 			}
