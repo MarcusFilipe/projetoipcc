@@ -21,6 +21,8 @@ public class RepositorioVendaLista implements RepositorioVenda {
 			if (this.node.getId().contentEquals(id)) {
 				this.node=this.next.node;
 				this.next=this.next.next;
+			}else {
+				this.next.remover(id);
 			}
 		}
 	}
