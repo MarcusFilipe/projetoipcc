@@ -12,6 +12,8 @@ public interface RepositorioProdutos {
 	public Produto procurarProduto(String id);
 
 	public boolean existeProduto(String id);
+	
+	public String listagemProduto(Produto produto);
 }
 
 ///

@@ -47,6 +47,16 @@ public class RepositorioProdutoArray implements RepositorioProdutos {
 		}
 		return resposta;
 	}
+	
+	public String listagemProduto(Produto produto) {
+        String resposta="";
+        for (int x = 0; x < index; x++) {
+            resposta+= this.produto[x].getId();
+             if(x!=index-1)
+                  resposta+=", ";
+        }
+        return resposta;
+}
 
 	private int getPosicao(String id) {
 		int posicao = 0;

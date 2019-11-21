@@ -38,4 +38,7 @@ public class CadastroProdutos {
 			throw new ProdutoNaoCadastradoException(produto.getId());
 		}
 	}
+	public String listagem(Produto produto) {
+        return this.produto.listagemProduto(produto);
+    }
 }

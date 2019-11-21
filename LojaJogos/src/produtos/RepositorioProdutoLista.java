@@ -49,4 +49,12 @@ public class RepositorioProdutoLista implements RepositorioProdutos {
 			this.proximo.atualizarProduto(produto);
 		}
 	}
+	public String listagemProduto(Produto produto) {
+		if (!this.produtos.getId().equals(null)) {
+			return this.produtos.getId()+", "+this.proximo.produtos.getId();
+		} else {
+			return "";
+		}
+	}
+
 }

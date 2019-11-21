@@ -119,5 +119,8 @@ public class Fachada {
 	public Produto procurarProduto(String id) throws ProdutoNaoCadastradoException{
 		return this.produtos.procurar(id);
 	}
+	public String listagemProduto(Produto produto) {
+        return this.produtos.listagem(produto);
+    }
 
 }
