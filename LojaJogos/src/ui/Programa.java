@@ -80,6 +80,8 @@ public class Programa {
 								arrayProduto.inserirProduto(new Produto (in.nextLine(), in.nextLine(), Double.parseDouble(in.nextLine()), in.nextLine(), in.nextLine()));
 							}f1.inserirVenda(new Venda(in.nextLine(),arrayProduto,in.nextDouble()));
 							System.out.println("Venda cadastrada com sucesso");
+							if (in.hasNext())
+								in.nextLine();
 							break;
 						}
 						break;
@@ -128,9 +130,10 @@ public class Programa {
 							Produto d = f1.procurarProduto(in.nextLine());
 							System.out.println("nome -" +d.getNome() +"\ncategoria -"+ d.getCategoria()+"\npreco -"+d.getPreco());
 							break;
-						case "Venda":
+						case "VENDA":
 							Venda e = f1.procurarVenda(in.nextLine());
-							System.out.println("kpaa");
+							String products = e.getProduto().listagemProduto(e.getProduto());
+							System.out.println("A venda de id "+e.getId() + " inclui os produtos " + products + " e tem valor total de " + e.getValor());
 						}
 						break;
 					}
@@ -224,6 +227,8 @@ public class Programa {
 									arrayProduto.inserirProduto(new Produto (in.nextLine(), in.nextLine(), Double.parseDouble(in.nextLine()), in.nextLine(), in.nextLine()));
 								}f.inserirVenda(new Venda(in.nextLine(),arrayProduto,in.nextDouble()));
 								System.out.println("Venda cadastrada com sucesso");
+								if (in.hasNext())
+									in.nextLine();
 								break;
 							
 							}
@@ -276,7 +281,8 @@ public class Programa {
 								break;
 							case "VENDA":
 								Venda e = f.procurarVenda(in.nextLine());
-								System.out.println("ka");
+								String products = e.getProduto().listagemProduto(e.getProduto());
+								System.out.println("A venda de id "+e.getId() + " inclui os produtos " + products + " e tem valor total de " + e.getValor());
 							
 							}
 							break;

@@ -13,7 +13,7 @@ public interface RepositorioProdutos {
 
 	public boolean existeProduto(String id);
 	
-	public String listagemProduto(Produto produto);
+	public String listagemProduto(RepositorioProdutos produto);
 }
 
 ///

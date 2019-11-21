@@ -48,7 +48,7 @@ public class RepositorioProdutoArray implements RepositorioProdutos {
 		return resposta;
 	}
 	
-	public String listagemProduto(Produto produto) {
+	public String listagemProduto(RepositorioProdutos produto) {
         String resposta="";
         for (int x = 0; x < index; x++) {
             resposta+= this.produto[x].getId();
