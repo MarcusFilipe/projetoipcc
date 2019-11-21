@@ -72,7 +72,15 @@ public class Programa {
 							f1.inserirProduto(new Produto(in.nextLine(), in.nextLine(), Double.parseDouble(in.nextLine()), in.nextLine(), in.nextLine()));
 							System.out.println("Produto cadastrado com sucesso");
 							break;
-						
+						case "VENDA":
+							String aux="a";
+							RepositorioProdutos arrayProduto = new RepositorioProdutoArray(100);
+							while (!aux.contentEquals("kapa")) {
+								aux=in.nextLine();
+								arrayProduto.inserirProduto(new Produto (in.nextLine(), in.nextLine(), Double.parseDouble(in.nextLine()), in.nextLine(), in.nextLine()));
+							}f1.inserirVenda(new Venda(in.nextLine(),arrayProduto,in.nextDouble()));
+							System.out.println("Venda cadastrada com sucesso");
+							break;
 						}
 						break;
 					}
@@ -96,7 +104,9 @@ public class Programa {
 							f1.removerProduto(in.nextLine());
 							System.out.println("Produto removido com sucesso");
 							break;
-						
+						case "VENDA":
+							f1.removerVenda(in.nextLine());
+							System.out.println("Venda removida com sucesso");
 						}
 						break;
 					}
@@ -118,6 +128,9 @@ public class Programa {
 							Produto d = f1.procurarProduto(in.nextLine());
 							System.out.println("nome -" +d.getNome() +"\ncategoria -"+ d.getCategoria()+"\npreco -"+d.getPreco());
 							break;
+						case "Venda":
+							Venda e = f1.procurarVenda(in.nextLine());
+							System.out.println("kpaa");
 						}
 						break;
 					}
@@ -145,6 +158,15 @@ public class Programa {
 							f1.atualizarProduto(new Produto(in.nextLine(), in.nextLine(), Double.parseDouble(in.nextLine()), in.nextLine(), in.nextLine()));
 							System.out.println("Produto atualizado com sucesso");
 							break;
+						case "VENDA":
+							String aux="a";
+							RepositorioProdutos arrayProduto = new RepositorioProdutoArray(100);
+							while (!aux.contentEquals("kapa")) {
+								aux=in.nextLine();
+								arrayProduto.inserirProduto(new Produto (in.nextLine(), in.nextLine(), Double.parseDouble(in.nextLine()), in.nextLine(), in.nextLine()));
+							}f1.atualizarVenda(new Venda(in.nextLine(),arrayProduto,in.nextDouble()));
+							System.out.println("Venda atualizada com sucesso");
+							break;
 						}
 						break;
 					}
@@ -155,6 +177,9 @@ public class Programa {
 							break;
 						case "CLIENTE":
 							System.out.println(f1.existeCliente(in.nextLine()));
+							break;
+						case "VENDA":
+							System.out.println(f1.existeVenda(in.nextLine()));
 							break;
 						
 						}
@@ -191,6 +216,15 @@ public class Programa {
 								f.inserirProduto(new Produto(in.nextLine(), in.nextLine(), Double.parseDouble(in.nextLine()), in.nextLine(), in.nextLine()));
 								System.out.println("Produto cadastrado com sucesso");
 								break;
+							case "VENDA":
+								String aux="a";
+								RepositorioProdutos arrayProduto = new RepositorioProdutoArray(100);
+								while (!aux.contentEquals("kapa")) {
+									aux=in.nextLine();
+									arrayProduto.inserirProduto(new Produto (in.nextLine(), in.nextLine(), Double.parseDouble(in.nextLine()), in.nextLine(), in.nextLine()));
+								}f.inserirVenda(new Venda(in.nextLine(),arrayProduto,in.nextDouble()));
+								System.out.println("Venda cadastrada com sucesso");
+								break;
 							
 							}
 							break;
@@ -215,6 +249,9 @@ public class Programa {
 								f.removerProduto(in.nextLine());
 								System.out.println("Produto removido com sucesso");
 								break;
+							case "VENDA":
+								f.removerVenda(in.nextLine());
+								System.out.println("Venda removida com sucesso");
 							
 							}
 							break;
@@ -237,6 +274,10 @@ public class Programa {
 								Produto d = f.procurarProduto(in.nextLine());
 								System.out.println("nome -" +d.getNome() +"\ncategoria -"+ d.getCategoria()+"\npreco -"+d.getPreco());
 								break;
+							case "VENDA":
+								Venda e = f.procurarVenda(in.nextLine());
+								System.out.println("ka");
+							
 							}
 							break;
 						}
@@ -264,6 +305,15 @@ public class Programa {
 								f.atualizarProduto(new Produto(in.nextLine(), in.nextLine(), Double.parseDouble(in.nextLine()), in.nextLine(), in.nextLine()));
 								System.out.println("Produto atualizado com sucesso");
 								break;
+							case "VENDA":
+								String aux="a";
+								RepositorioProdutos arrayProduto = new RepositorioProdutoArray(100);
+								while (!aux.contentEquals("kapa")) {
+									aux=in.nextLine();
+									arrayProduto.inserirProduto(new Produto (in.nextLine(), in.nextLine(), Double.parseDouble(in.nextLine()), in.nextLine(), in.nextLine()));
+								}f.atualizarVenda(new Venda(in.nextLine(),arrayProduto,in.nextDouble()));
+								System.out.println("Venda atualizada com sucesso");
+								break;
 							}
 							break;
 						}
@@ -275,7 +325,8 @@ public class Programa {
 							case "CLIENTE":
 								System.out.println(f.existeCliente(in.nextLine()));
 								break;
-							
+							case "VENDA":
+								System.out.println(f.existeVenda(in.nextLine()));
 							}
 							break;
 						}
@@ -299,6 +350,10 @@ public class Programa {
 			}
 			catch (ProdutoNaoCadastradoException e8) {
 				e8.printStackTrace();
+			}catch (VendaJaCadastradaException e9) {
+				e9.printStackTrace();
+			}catch (VendaInexistenteException e10) {
+				e10.printStackTrace();
 			}
 		}
 
