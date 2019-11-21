@@ -33,7 +33,7 @@ public class RepositorioDesenvolvedorArray implements RepositorioDesenvolvedores
 	{
 		boolean resposta=false;
 		int i=this.getIndex(cnpj);
-		if(i<index)
+		if(i!=index)
 			resposta=true;
 		return resposta;
 	}
@@ -59,8 +59,9 @@ public class RepositorioDesenvolvedorArray implements RepositorioDesenvolvedores
 	private int getIndex(String cnpj)
 	{
 		int i =0;
-		while(!desenvolvedores[i].getCnpj().equals(cnpj)&&i<this.index)
+		while(i<this.index&&!desenvolvedores[i].getCnpj().equals(cnpj))
 			i++;
+		
 		return i;
 	}
 }
