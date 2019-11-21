@@ -18,7 +18,7 @@ public class RepositorioFuncionarioArray implements RepositorioFuncionario {
 	public Funcionario procurar(String carteiraTrabalho) {
 		Funcionario resposta = null;
 		int index = this.getIndice(carteiraTrabalho);
-		if (index != this.index) {
+		if (index < this.index) {
 			resposta = this.funcionario[index];
 		}
 		return resposta;
@@ -26,14 +26,14 @@ public class RepositorioFuncionarioArray implements RepositorioFuncionario {
 
 	public void atualizar(Funcionario dados) {
 		int index = this.getIndice(dados.getCarteiraTrabalho());
-		if (index != this.index) {
+		if (index < this.index) {
 			this.funcionario[index] = dados;
 		}
 	}
 
 	public void remover(String carteiraTrabalho) {
 		int index = this.getIndice(carteiraTrabalho);
-		if (index != this.index) {
+		if (index < this.index) {
 			this.index = this.index - 1;
 			this.funcionario[index] = this.funcionario[this.index];
 			this.funcionario[this.index] = null;
@@ -42,22 +42,22 @@ public class RepositorioFuncionarioArray implements RepositorioFuncionario {
 
 	public boolean existe(String carteiraTrabalho) {
 		int index = this.getIndice(carteiraTrabalho);
-		return (index != this.index);
+		return (index < this.index);
 	}
 
 	private int getIndice(String carteiraTrabalho) {
 		String things;
 		boolean existe = false;
-		int indice = 0;
+		int i = 0;
 
-		for (int i = 0; !(existe) && i < this.index; i++) {
+		for (; !(existe) && i < this.index; i++) {
 			things = funcionario[i].getCarteiraTrabalho();
 			if (things.equals(carteiraTrabalho)) {
 				existe = true;
-				indice = i;
 			}
+			
 		}
-		return indice;
+		return i;
 	}
 	
 

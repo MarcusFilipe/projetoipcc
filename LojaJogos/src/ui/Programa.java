@@ -134,6 +134,7 @@ public class Programa {
 							break;
 						case "FUNCIONARIO":
 							Funcionario c = f1.procurarFuncionario (in.nextLine());
+							System.out.println();
 							System.out.println("nome -" +c.getNome() +"\nemail -"+ c.getEmail());
 							break;
 						case "PRODUTO":
@@ -309,7 +310,8 @@ public class Programa {
 								System.out.println("nome -" +b.getNome() +"\nemail -"+ b.getEmail());
 								break;
 							case "FUNCIONARIO":
-								Funcionario c = f.procurarFuncionario (in.nextLine());
+								String carteiratrab=in.nextLine();
+								Funcionario c = f.procurarFuncionario(carteiratrab);
 								System.out.println("nome -" +c.getNome() +"\nemail -"+ c.getEmail());
 								break;
 							case "PRODUTO":
