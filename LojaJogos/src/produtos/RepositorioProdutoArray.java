@@ -60,7 +60,7 @@ public class RepositorioProdutoArray implements RepositorioProdutos {
 
 	private int getPosicao(String id) {
 		int posicao = 0;
-		while (!produto[posicao].getId().equals(id) && posicao < this.index) {
+		while (posicao<this.index&&!produto[posicao].getId().equals(id)) {
 			posicao++;
 		}
 		return posicao;
