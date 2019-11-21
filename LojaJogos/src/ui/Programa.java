@@ -132,7 +132,7 @@ public class Programa {
 							break;
 						case "VENDA":
 							Venda e = f1.procurarVenda(in.nextLine());
-							String products = e.getProduto().listagemProduto(e.getProduto());
+							String products = e.getProduto().listagemProduto();
 							System.out.println("A venda de id "+e.getId() + " inclui os produtos " + products + " e tem valor total de " + e.getValor());
 						}
 						break;
@@ -283,7 +283,7 @@ public class Programa {
 								break;
 							case "VENDA":
 								Venda e = f.procurarVenda(in.nextLine());
-								String products = e.getProduto().listagemProduto(e.getProduto());
+								String products = e.getProduto().listagemProduto();
 								System.out.println("A venda de id "+e.getId() + " inclui os produtos " + products + " e tem valor total de " + e.getValor());
 							
 							}
