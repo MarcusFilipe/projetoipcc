@@ -1,8 +1,8 @@
 package produtos;
 
 public class ProdutoNaoCadastradoException extends Exception {
-	ProdutoNaoCadastradoException(String nome) {
-		super("Produto" + nome + " nao existe");
+	public ProdutoNaoCadastradoException(String id) {
+		super("O produto com o id: " + id + " nao existe");
 	}
 	///
 }

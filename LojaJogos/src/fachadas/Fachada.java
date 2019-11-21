@@ -54,18 +54,20 @@ public class Fachada {
 		this.desenvolvedores.remover(cnpj);
 	}
 	
-	public Desenvolvedor procurarDesenvolvedor(String cpf) throws DesenvolvedorNaoCadastradoException{
-		return this.desenvolvedores.procurar(cpf);
+	public Desenvolvedor procurarDesenvolvedor(String cnpj) throws DesenvolvedorNaoCadastradoException{
+		return this.desenvolvedores.procurar(cnpj);
 	}
 	
 	public void atualizarDesenvolvedor(Desenvolvedor desenvolvedor) throws DesenvolvedorNaoCadastradoException{
 		this.desenvolvedores.atualiza(desenvolvedor);
 	}
 	
-	public boolean existeDesenvolvedor(String cpf){
-		return this.desenvolvedores.existe(cpf);
+	public boolean existeDesenvolvedor(String cnpj){
+		return this.desenvolvedores.existe(cnpj);
 	}
-	
+	public String listaProdutosDesenvolvedor(String cnpj) throws DesenvolvedorNaoCadastradoException {
+		return this.desenvolvedores.listagemProdutos(cnpj);
+	}
 	//funcionario
 	
 	public void cadastrarFuncionario(Funcionario funcionario) throws FuncionarioJaCadastradoException{
@@ -119,8 +121,8 @@ public class Fachada {
 	public Produto procurarProduto(String id) throws ProdutoNaoCadastradoException{
 		return this.produtos.procurar(id);
 	}
-	public String listagemProduto(Produto produto) {
-        return this.produtos.listagem(produto);
+	public String listagemProduto() {
+        return this.produtos.listagem();
     }
 
 }

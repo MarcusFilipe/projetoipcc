@@ -1,5 +1,9 @@
 package desenvolvedores;
 
+import produtos.Produto;
+import produtos.ProdutoNaoCadastradoException;
+import produtos.RepositorioProdutoArray;
+
 public class CadastroDesenvolvedores 
 {
 	private RepositorioDesenvolvedores desenvolvedores;
@@ -38,5 +42,21 @@ public class CadastroDesenvolvedores
 	public boolean existe(String cnpj)
 	{
 		return this.desenvolvedores.existe(cnpj);
+	}
+	public String listagemProdutos(String cnpj) throws DesenvolvedorNaoCadastradoException{
+		String resposta = this.procurar(cnpj).getRepositorioProdutosArray().listagemProduto();
+		if(resposta==null)
+			resposta="Lista Vazia!";
+		return resposta;
+	}
+	public Produto procuraProduto(String cnpj,String id) throws DesenvolvedorNaoCadastradoException, ProdutoNaoCadastradoException{
+		Produto resposta= this.procurar(cnpj).getRepositorioProdutosArray().procurarProduto(id);
+		if(resposta!=null)
+			return resposta;
+		else
+			throw new ProdutoNaoCadastradoException(id);
+	}
+	public boolean existeProduto(String cnpj,String id) throws DesenvolvedorNaoCadastradoException{
+		return this.procurar(cnpj).getRepositorioProdutosArray().existeProduto(id);
 	}
 }

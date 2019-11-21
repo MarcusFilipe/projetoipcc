@@ -12,6 +12,10 @@ public class Desenvolvedor extends PessoaJuridica
 	private RepositorioProdutoArray repositorioProdutosArray;
 
 	
+	public RepositorioProdutoArray getRepositorioProdutosArray() {
+		return repositorioProdutosArray;
+	}
+
 	public Desenvolvedor(String nome,String email, String cnpj, double porcentagemVenda,RepositorioProdutoArray repositorioProdutosArray)
 	{
 		super(nome,email,cnpj);
